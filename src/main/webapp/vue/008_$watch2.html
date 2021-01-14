@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习watch方法</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app">
+<button @click="changeMsg">更改数据</button>
+<h2>{{msg}}</h2>
+</div>
+<script type="text/javascript">
+	var obj = {
+		msg : 'hello'
+	};
+
+	Object.freeze(obj);//冻结后，数据变为只读模式，无法进行更改了。
+
+	var app = new Vue( {
+		el : '#app',
+		data : obj,
+		methods : {
+			changeMsg : function() {
+				this.msg = (new Date()).toString();
+			}
+		}
+	});
+
+	//观察msg值，如果有变化时，就是调用下面的函数
+	app.$watch('msg', function(newVal, oldVal) {
+		console.log("新值为:" + newVal + " , 旧值为：" + oldVal);
+	});
+</script>
+</body>
+</html>

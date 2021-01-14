@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>练习使用v-if和v-show的区别</title>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<input type="button" @click="disp" value="显示"/>
+		<input type="button" @click="hide" value="隐藏"/>
+		
+		<p v-if="versionInfo">Vue 不支持 IE8 及以下版本，因为 Vue 使用了 IE8 无法模拟的 ECMAScript 5 特性。但它支持所有兼容 ECMAScript 5 的浏览器。</p>
+		<p v-show="versionInfo2">Vue 在其所有项目中公布的功能和行为都遵循语义化版本控制。对于未公布的或内部暴露的行为，其变更会描述在发布说明中。</p>
+	</div>
+
+	<script type="text/javascript">
+		var app = new Vue({
+			el:"#app",
+			data:{
+				versionInfo:false,
+				versionInfo2:false
+			},
+			methods:{
+				disp:function(){
+					this.versionInfo= true;
+					this.versionInfo2= true;
+				},
+				hide:function(){
+					this.versionInfo= false;
+					this.versionInfo2= false;
+				}
+			}
+		});
+	</script>
+</body>
+</html>

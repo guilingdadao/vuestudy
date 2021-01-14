@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app"></div>
+<script type="text/javascript">
+//7. Iterators（迭代器）+ for..of
+
+//Iterator
+//能够用来遍历集合中元素，按照其在集合中顺序跟踪遍历的一个个位置，而Iterable是一个返回指定iterator对象的对象群，
+//一个iterator是一个带有下一个属性的对象，返回的是调用Symbol.iterator方法的结果，
+//我们能使用Object.leys构建一个带有我们对象属性名的数组。
+
+let post = {  
+  title: 'Some title',
+  replies: 19
+};
+
+post[Symbol.iterator] = function () {
+	
+  let properties = Object.keys(this);
+  
+  let count = 0;
+  let idDone = false;  
+  
+   let next = () => {
+	    if(count <= properties.length){
+	        
+	      isDone = true; 
+	    }
+	    
+	    return { done: isDone, value: this[properties[count++]] };
+   };
+   
+   return { next };
+};
+</script>
+</body>
+</html>

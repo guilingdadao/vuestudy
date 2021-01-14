@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>练习生命周期</title>
+	<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app"></div>
+<script type="text/javascript">
+//函数参数 - 默认值、参数打包、 数组展开（Default 、Rest 、Spread）
+//Default
+function findArtist(name='lu', age='26') {
+  console.log("姓名为："+name);
+  console.log("年龄为："+age);
+}
+
+findArtist();
+
+
+
+/**Rest*******************************/
+function fun1(x, ...y) {
+	// y is an Array
+	return x * y.length;
+}
+
+var ret = fun1(3, "hello", true)==6;
+
+console.log("1比对结果："+ret);
+
+/**Spread*******************************/
+function f(x, y, z) {
+	return x + y + z;
+}
+//Pass each elem of array as argument
+ret = f(...[1,2,3]) == 6;
+
+console.log("2比对结果："+ret);
+
+var ret15 = f(...[6,5,4]);
+console.log("结果:" +ret15);
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app"></div>
+<script type="text/javascript">
+//10.Modules
+
+//ES6的内置模块功能借鉴了CommonJS和AMD各自的优点：
+
+//(1).具有CommonJS的精简语法、唯一导出出口(single exports)和循环依赖(cyclic dependencies)的特点。
+
+//(2).类似AMD，支持异步加载和可配置的模块加载。
+
+// lib/math.js
+export function sum(x, y) {
+  return x + y;
+}
+export var pi = 3.141593;
+
+// app.js
+import * as math from "lib/math";
+alert("2π = " + math.sum(math.pi, math.pi));
+
+// otherApp.js
+import {sum, pi} from "lib/math";
+alert("2π = " + sum(pi, pi));
+
+Module Loaders:
+// Dynamic loading – ‘System’ is default loader
+System.import('lib/math').then(function(m) {
+  alert("2π = " + m.sum(m.pi, m.pi));
+});
+
+// Directly manipulate module cache
+System.get('jquery');
+System.set('jquery', Module({$: $})); // WARNING: not yet finalized
+</script>
+</body>
+</html>

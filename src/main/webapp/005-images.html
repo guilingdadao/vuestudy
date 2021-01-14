@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>图片浏览效果</title>
+<style type="text/css">
+
+</style>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<div id="imgSwitch">
+			<img alt="图片显示" height="100px" width="200px" v-bind:src="imgArr[index]"/>
+			<a class="left" v-show="index > 0" @click="pre" href="javascript:void(0)">&lt;&lt;</a>
+			<a class="right" v-show="index < imgArr.length-1 " @click="next" href="javascript:void(0)">&gt;&gt;</a>
+		</div>
+	
+	</div>
+
+	<script type="text/javascript">
+		var app = new Vue({
+			el:"#imgSwitch",
+			data:{
+				imgArr:[
+					'images/1.png',
+					'images/2.png',
+					'images/3.png',
+					'images/4.png',
+					'images/5.png'
+				],
+				index:0
+			},
+			methods:{
+				pre:function(){
+					if(0<this.index ){
+						this.index--;
+					}else{
+						alert('已经是第一页了');
+					}
+				},
+				next:function(){
+					if(this.index <this.imgArr.length){
+						this.index++;
+					}else{
+						alert('已经是最后一页');
+					}
+				}
+			
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app"></div>
+<script type="text/javascript">
+//7. Iterators（迭代器）+ for..of
+
+//迭代器有个next方法，调用会返回：
+
+//(1).返回迭代对象的一个元素：{ done: false, value: elem }
+
+//(2).如果已到迭代对象的末端：{ done: true, value: retVal }
+
+for (var n of ['a','b','c']) {
+  console.log(n);
+}
+// 打印a、b、c
+
+
+//下面看看对数组的for循环，For是从数组中直接读取每个元素，然后分配给变量：
+let users = ["sam", "tom", "peter"];  
+for (let user of users) {
+  console.log(user); // 打印输出 sam tom peter
+} 
+
+</script>
+</body>
+</html>

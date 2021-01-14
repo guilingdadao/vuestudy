@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>练习生命周期</title>
+	<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app"></div>
+<script type="text/javascript">
+//5.箭头函数 Arrow functions
+//(1).简化了代码形式，默认return表达式结果。
+//es5
+const greetings = (name) => {
+    return `hello ${name}`;
+}
+//es6
+//const greetings = name => `hello ${name}`;
+console.log(greetings('es5'));
+
+const sayHi=name=>`hello,${name}`;
+console.log(sayHi('张三'));
+console.log(sayHi('李四'));
+
+//注意点：Const表示对值的“恒定引用”。因此，使用const，您实际上可以改变一个被变量引用的对象属性，但是你无法改变引用本身。
+const NAMES = [];
+NAMES.push("Jim");
+console.log(NAMES.length === 1); // true
+NAMES = ["Steve", "John"]; // error
+
+
+
+//(2).自动绑定语义this，即定义函数时的this。如上面例子中，forEach的匿名函数参数中用到的this。
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

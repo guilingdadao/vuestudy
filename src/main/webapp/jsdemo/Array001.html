@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app"></div>
+<script type="text/javascript">
+/*
+定义：
+reduce() 方法对累加器和数组中的每个元素 (从左到右)应用一个函数，将其减少为单个值。
+语法：
+array.reduce(function(accumulator, currentValue, currentIndex, array), initialValue)；
+accumulator：上一次调用回调返回的值，或者是提供的初始值（initialValue）
+currentValue：数组中正在处理的元素
+currentIndex：数据中正在处理的元素索引，如果提供了 initialValue ，从0开始；否则从1开始
+array： 调用 reduce 的数组
+initialValue：可选项，其值用于第一次调用 callback 的第一个参数。如果没有设置初始值，则将数组中的第一个元素作为初始值。空数组调用reduce时没有设置初始值将会报错。
+应用：
+
+比如求和或者需要连续操作数组中的每个元素获得最终结果，for循环可以解决的可以尝试使用reduce方法来做。
+*/
+//求和 - 普通js函数
+var ret = [1,2,3,4,5,6,7,8,9].reduce(function(sum,e){
+	return sum + e;
+});
+console.log("1、10以内数字之和为"+ ret);
+
+//求和 - 箭头函数
+var res = [0, 1, 2, 3, 4].reduce((accumulator, currentValue, currentIndex, array) => {
+　　return accumulator + currentValue;
+});
+
+// es6
+let ten = [1,2,3,4,5,6,7,8,9].reduce((sum,e)=>sum+e);
+console.log("2、10以内数字之和为"+ ret);
+
+
+// 求最大值
+var res = [1,2,3,4,5].reduce((pre, curr) => {
+	
+    return curr > pre ? curr : pre;
+    
+    //return Math.max(pre,curr);
+});
+
+//3. 将二维数组转化为一维数组
+var flattened = [[0, 1], [2, 3], [4, 5]].reduce((a, b) => {
+    return a.concat(b);
+});
+
+
+
+</script>
+</body>
+</html>

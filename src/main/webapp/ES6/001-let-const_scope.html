@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+</head>
+
+<body>
+
+<div id="app"></div>
+<script type="text/javascript">
+	//1.块级作用域 关键字let, 常量const
+	// let和const的作用域是最靠近的代码块
+	try {
+		{
+			
+			let name1 = 'zhangsan';
+			console.log(name1);
+		}
+		console.log(name1);
+	} catch (e) {
+		console.log(e);
+	}
+
+	try {
+		{
+			const
+			bookList = [ 'javascript', 'java', 'C' ];
+			
+			console.log(bookList);
+		}
+		console.log(bookList);
+	} catch (e) {
+		console.log(e);
+	}
+</script>
+</body>
+</html>

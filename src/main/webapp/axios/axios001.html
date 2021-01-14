@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+<script src="../js/vue.js"></script>
+<script src="../js/axios.js"></script>
+</head>
+
+<body>
+
+
+<div id="app">
+<p>
+	<input type="button" value="获取数据" @click="getPerson" />
+	<input type="button" value="获取数据2" @click="getPerson2" />
+</p>
+<textarea v-model="disTextArea" rows="10" cols="50"></textarea></div>
+
+<script type="text/javascript">
+var url = 'http://localhost:8080/vueDemo/data/person.json';
+	var app = new Vue( {
+		el : "#app",
+		data : {
+			disTextArea : '测试数据'
+		},
+		methods : {
+			getPerson : function() {
+				var that = this;
+				
+				axios.get(url).then(function(res) {
+					
+					that.disTextArea = res.data.join('');
+				}).catch(function(err){
+					console.log("错误信息为："+err.message);
+					});
+			},
+			getPerson2:function(){
+				var that = this;
+				
+				axios.get(url)
+				.then(function(res){
+					that.disTextArea = res.data.join('');
+					},function(err){
+						console.log("错误信息为："+err.message);
+					});
+			}
+		}
+	});
+</script>
+</body>
+</html>

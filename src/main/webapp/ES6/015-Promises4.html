@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+</head>
+
+<body>
+
+<div id="app"></div>
+<script type="text/javascript">
+
+//
+var p =new Promise(function(resolve,reject){
+	let isOk=false;
+	if(isOk){
+		resolve();
+	}else{
+		reject();	
+	}
+});
+
+// then中的函数是回调函数
+p.then(function(){
+	console.log('成功了');
+},function(){
+	console.log('失败了');
+});
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app"></div>
+<script type="text/javascript">
+	//11.Map + Set + WeakMap + WeakSet
+
+	//四种集合类型，WeakMap、WeakSet作为属性键的对象如果没有别的变量在引用它们，则会被回收释放掉。
+//	数组并不强迫元素的唯一性，重复元素是可以的，但是Set是强调唯一性，Set也是可以被遍历的，能够使用for循环和解构。WeakSet是有内存效率的，节省内存，但是不能用于循环，因为没有办法从中读取值。WeakSet适合不可变对象。
+	// Sets
+	var s = new Set();
+	s.add("hello").add("goodbye").add("hello");
+	s.size === 2;
+	s.has("hello") === true;
+
+	// Maps
+	var m = new Map();
+	m.set("hello", 42);
+	m.set(s, 34);
+	m.get(s) == 34;
+
+	//另外还有WeakMap，在WeakMap中，原始数据类型String字符串 number数字和boolean是不允许的，WeakMaps是不能遍历的，不能用于循环，对于节省内存比较好。	
+	//WeakMap
+	var wm = new WeakMap();
+	wm.set(s, {
+		extra : 42
+	});
+	wm.size === undefined
+
+	// Weak Sets
+	var ws = new WeakSet();
+	ws.add( {
+		data : 42
+	});//Because the added object has no other references, it will not be held in the set
+</script>
+</body>
+</html>

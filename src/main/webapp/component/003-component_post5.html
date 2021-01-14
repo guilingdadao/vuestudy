@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>计算属性</title>
+
+<!-- 因为 AJAX 库和通用工具的生态已经相当丰富，Vue 核心代码没有重复-->
+<!--  提供这些功能以保持精简。这也可以让你自由选择自己更熟悉的工具。	-->
+<script src="../js/vue.js"></script>
+<script src="../js/lodash.min1.8.3.js"></script>
+<script src="../js/axios-0.21.0.js"></script>
+
+</head>
+
+<body>
+<!--publishedAt,这个时候，使用publishAt就没有问题，
+也就是属性的名称，不区分大小写-->
+
+<div id="app">
+	<blog-post v-for="blog in blogdata"
+		:key="blog.id"
+		:post="blog"
+		></blog-post>
+</div>
+
+<script>
+Vue.component('blog-post',{
+	props : ['post'],
+	template : '<div><p v-html="post.title"></p><p v-html="post.content"></p><p v-html="post.publishedAt"></p><p v-html="post.comments"></p></div>'
+});
+
+var vm  = new Vue({ el : "#app",
+	data:{
+	blogdata:[
+				{title:'<h2>hello, java</h2>',content:'<p>java is a pragram languange!</p>',publishedAt:'2020-12-29',comments:'java123'},
+				{title:'<h2>hello, c</h2>',content:'<p>c is a pragram languange!</p>',publishedAt:'2020-12-29',comments:'C 123'},
+				{title:'<h2>hello, python</h2>',content:'<p>python is a pragram languange!</p>',publishedAt:'2020-12-29',comments:'python 123'},
+				{title:'<h2>hello, sql</h2>',content:'<p>sql is a pragram languange!</p>',publishedAt:'2020-12-29',comments:' sql 123'},
+				{title:'<h2>hello, php</h2>',content:'<p>php is a pragram languange!</p>',publishedAt:'2020-12-29',comments:' php 123'}
+			]
+	}});
+
+</script>
+
+</body>
+</html>

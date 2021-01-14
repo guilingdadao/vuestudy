@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>计算属性</title>
+
+<!-- 因为 AJAX 库和通用工具的生态已经相当丰富，Vue 核心代码没有重复-->
+<!--  提供这些功能以保持精简。这也可以让你自由选择自己更熟悉的工具。	-->
+<script src="../js/vue.js"></script>
+<script src="../js/lodash.min1.8.3.js"></script>
+<script src="../js/axios-0.21.0.js"></script>
+
+</head>
+
+<body>
+
+<p>
+有两种组件的注册类型：全局注册和局部注册
+</p>
+
+<div id="app">
+	<btn-counter></btn-counter>
+	<btn-counter></btn-counter>
+</div>
+
+
+<div id="btnDemo">
+	<btn-counter></btn-counter>
+	<btn-counter></btn-counter>
+</div>
+
+<script>
+//以下注册方式是-全局注册的组件可以用在其被注册之后的任何 (通过 new Vue) 新创建的 Vue 根实例，也包括其组件树中的所有子组件的模板中。
+Vue.component('btn-counter',{
+	data:function(){
+		return{
+			counter:0
+		}
+	},
+	template:'<button @click="counter++">你已经点击了{{counter}}次</button>'
+});
+
+var app = new Vue({el:"#app"});
+
+var btnDemo = new Vue({el:"#btnDemo"});
+
+</script>
+
+
+</body>
+</html>

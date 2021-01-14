@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app"></div>
+<script type="text/javascript">
+//9.Class
+//Class，有constructor、extends、super，但本质上是语法糖（对语言的功能并没有影响，但是更方便程序员使用）。
+//ES6引入了对类（class关键字），构造函数（constructor关键字）和extend继承关键字的语言支持。
+
+class Artist {
+    constructor(name) {
+        this.name = name;
+    }
+
+    perform() {
+        return this.name + " performs ";
+    }
+}
+
+class Singer extends Artist {
+
+    constructor(name, song) {
+        super.constructor(name);
+        this.song = song;
+    }
+
+    perform() {
+        return super.perform() + "[" + this.song + "]";
+    }
+}
+
+let james = new Singer("Etta James", "At last");
+james instanceof Artist; // true
+james instanceof Singer; // true
+
+james.perform(); // "Etta James performs [At last]"
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+</head>
+
+<body>
+
+<div id="app"></div>
+<script type="text/javascript">
+//let在循环中的应用：
+/**
+for (let i in usernames) {
+	_fetchProfiles('/users/' + usernames[i], function () {
+　　		console.log("fetched ", usernames[i]);
+	});
+}**/
+//let 没有变量提升（hoisted），上述代码中循环每次迭代时i变量的值都是新创建的，每次回调callback都是接受它自己的i版本。
+
+// let不会变量提升
+for(let i =0;i<10;i++){
+
+	window.setTimeout(function(){
+		console.log("i = "+i);
+	},2000);
+	
+}
+// 会提升变量
+for(var i =0;i<10;i++){
+
+	window.setTimeout(function(){
+		
+		console.log("i = "+i);
+	},1000);
+	
+}
+</script>
+</body>
+</html>

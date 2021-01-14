@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app"></div>
+<script type="text/javascript">
+//15.Promises
+//ES6/ES2015原生支持promise，一个 promise对象是一个等待异步操作完成的对象，当操作完成后，promise要么表示执行成功要么表示失败。
+//标准创建一个Promise方法是使用new Promise()构造器，能接受一个带有两个函数参数处理器，
+//第一个处理器典型称为resolve是当准备就绪时使用一个future未来值调用，
+//而另外一个处理器典型称为reject，是在其不能resolve决定future值时用来拒绝Rpomise。
+
+var p = new Promise(function(resolve, reject) {  
+    if (/* condition */) {
+        resolve(/* value */);  // fulfilled successfully 
+    }
+    else {
+        reject(/* reason */);  // error, rejected 
+    }
+});
+//每个Promise都有一个方法名为then，会将一对回调函数作为输入参数，第一个回调是成功时调用，另外一个是拒绝时调用：
+p.then((val) => console.log("Promise Resolved ", val),
+       (err) => console.log("Promise Rejected ", err));
+
+
+
+
+</script>
+</body>
+</html>

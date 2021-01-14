@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GB18030">
+<title>搭建vue环境，测试一下vue</title>
+<script type="text/javascript" src="../js/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+	<input type="button" value="翻转消息" @click="reverseMsg"/>
+	<input type="button" value="删除第一次字符" @click="delFirst"/>
+	<input type="button" value="删除第一次字符2" @click="delFirst2"/>
+	
+	<p>展示消息：<input type="text" v-model="msg"/></span></p>
+</div>
+
+<script type="text/javascript">
+
+var vm = new Vue({
+	el:"#app",
+	data:{
+		msg:'我是中国人，我爱我的祖国'
+	},
+	methods:{
+		reverseMsg:function(){
+			this.msg = this.msg.split('').reverse().join('');
+		},
+		delFirst:function(){
+			var arr =  this.msg.split('');
+			arr.shift();
+			this.msg = arr.join('');
+		},
+		delFirst2:function(){
+			this.msg = this.msg.substring(1);
+		}
+	}
+});
+</script>
+</body>
+</html>

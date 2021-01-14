@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app"></div>
+<script type="text/javascript">
+
+//新增 const
+//const也是用来声明变量，但是声明的变量为常量，常量的值是不能改变的。并且一旦声明就需要赋值，否则会报错；
+
+const PI = 3.1415926;
+console.log(PI);//3.1415926
+
+PI = 3.14;//Uncaught TypeError: Assignment to constant variable.
+
+const G;//Uncaught SyntaxError: Missing initializer in const declaration
+//全局对象的属性
+//全局对象是最顶层的对象，在浏览器环境是 window 对象，在 Node.js 中是 global 对象，
+//ES5 中全局对象的属性与全局变量是等价的，这被视为 JavaScript 语言的一大问题，因为很容易就不知不觉创建了一个全局变量。
+//ES6 改变了这一点，通过var和function声明的全局变量依旧是全局对象的属性，而let、const、class声明的变量不属于全局对象的属性。
+
+var a = 1;
+window.a;//1
+
+let b = 2;
+window.b;//undefined
+
+
+//注意点：Const表示对值的“恒定引用”。因此，使用const，您实际上可以改变一个被变量引用的对象属性，但是你无法改变引用本身。
+const NAMES = [];
+NAMES.push("Jim");
+console.log(NAMES.length === 1); // true
+NAMES = ["Steve", "John"]; // error
+
+
+//块作用域变量。新的ES6关键字let允许开发人员在块级别定义变量。
+
+
+
+
+</script>
+</body>
+</html>

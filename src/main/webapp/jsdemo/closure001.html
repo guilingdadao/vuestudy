@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app"></div>
+<script type="text/javascript">
+
+闭包指的是：能够访问另一个函数作用域的变量的函数。清晰的讲：闭包就是一个函数，这个函数能够访问其他函数的作用域中的变量。
+function outer() {
+     var  a = '变量1'
+     var  inner = function () {
+            console.info(a)
+     }
+    return inner    // inner 就是一个闭包函数，因为他能够访问到outer函数的作用域
+}
+
+很多人会搞不懂匿名函数与闭包的关系，实际上，闭包是站在作用域的角度上来定义的，因为inner访问到outer作用域的变量，所以inner就是一个闭包函数。
+
+虽然定义很简单，但是有很多坑点，比如this指向、变量的作用域，稍微不注意可能就造成内存泄露。我们先把问题抛一边，思考一个问题：为什么闭包函数能够访问其他函数的作用域 ?
+
+从堆栈的角度看待js函数
+　　基本变量的值一般都是存在栈内存中，而对象类型的变量的值存储在堆内存中，栈内存存储对应空间地址。基本的数据类型: Number 、Boolean、Undefined、String、Null。
+
+var  a = 1   //a是一个基本类型
+var  b = {m: 20 }   //b是一个对象
+
+
+《JavaScript高级编程》书中建议：由于闭包会携带包含它的函数的作用域，因为会比其他函数占用更多内容，过度使用闭包，会导致内存占用过多。
+
+
+
+
+
+
+
+坑点1： 引用的变量可能发生变化
+function outer() {
+      var result = []
+	  
+      for (var i = 0;i<10;i++){
+	  
+        result[i] = function () {
+            console.info(i)
+        }
+     }
+     return result
+}
+看样子result每个闭包函数对打印对应数字，1,2,3,4,...,10, 实际不是，因为每个闭包函数访问变量i是outer执行环境下的变量i，随着循环的结束，i已经变成10了，所以执行每个闭包函数，结果打印10， 10， ..., 10
+怎么解决这个问题呢？
+
+function outer() {//
+
+      var result = [];
+
+      for (var i = 0; i<10;i++){
+	  
+        result[i] = (function (num) {
+		
+             return function() {
+                   console.info(num);   // 此时访问的num，是上层函数执行环境的num，数组有10个函数对象，每个对象的执行环境下的number都不一样
+             }
+			 
+        })(i);
+     }
+	 
+     return result ;
+}
+
+坑点2: this指向问题
+
+var object = {
+     name: "object",
+     getName: function() {
+	 
+        return function() {
+             console.info(this.name)
+        }
+    }
+}
+
+object.getName()()    // underfined
+
+// 因为里面的闭包函数是在window作用域下执行的，也就是说，this指向windows
+
+
+坑点3：内存泄露问题
+
+function  showId() {
+    var el = document.getElementById("app")
+	
+    el.onclick = function(){
+	
+      aler(el.id)   // 这样会导致闭包引用外层的el，当执行完showId后，el无法释放
+    }
+}
+
+// 改成下面
+function  showId() {
+    var el = document.getElementById("app")
+    var id  = el.id
+	
+    el.onclick = function(){
+      aler(id) 
+    }
+    el = null    // 主动释放el
+}
+
+技巧1： 用闭包解决递归调用问题
+//
+function factorial(num) {
+
+   if(num<= 1) {
+   
+       return 1;
+	   
+   } else {
+      return num * factorial(num-1);
+   }
+}
+
+var anotherFactorial = factorial
+factorial = null
+anotherFactorial(4)   // 报错 ，因为最好是return num* arguments.callee（num-1），arguments.callee指向当前执行函数，
+但是在严格模式下不能使用该属性也会报错，所以借助闭包来实现
+
+
+// 使用闭包实现递归
+function newFactorial = (function f(num){
+
+    if(num<1) {return 1}
+    else {
+       return num* f(num-1)
+    }
+}) //这样就没有问题了，实际上起作用的是闭包函数f，而不是外面的函数newFactorial
+
+
+** 技巧2：用闭包模仿块级作用域**
+es6没出来之前，用var定义变量存在变量提升问题，eg:
+
+for(var i=0;i<10; i++){
+    console.info(i)
+}
+
+alert(i)  // 变量提升，弹出10
+
+//为了避免i的提升可以这样做
+(function () {
+    for(var i=0; i<10;i++){
+         console.info(i)
+    }
+})();
+
+alert(i)   // underfined   因为i随着函数的退出，执行环境销毁，变量回收
+当然现在大多用es6的let 和 const定义
+
+
+</script>
+</body>
+</html>

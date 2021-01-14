@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app"></div>
+<script type="text/javascript">
+//15.Promises
+//Promises是处理异步操作的对象，使用了 Promise 对象之后可以用一种链式调用的方式来组织代码，让代码更加直观（类似jQuery的deferred 对象）。
+
+
+function fakeAjax(url) {
+	
+  return new Promise(function (resolve, reject) {
+    // setTimeouts are for effect, typically we would handle XHR
+    if (!url) {
+      return setTimeout(reject, 1000);
+    }
+    
+    return setTimeout(resolve, 1000);
+  });
+}
+
+// no url, promise rejected
+fakeAjax().then(function () {
+  console.log('success');
+},function () {
+  console.log('fail');
+});
+
+//Promises Promises提供了一种处理异步操作的结果和错误的机制。你可以用回调来完成同样的事情，但是promises通过方法链接和简洁的错误处理提供了更高的可读性。
+const isGreater = (a, b) => {
+    return new Promise ((resolve, reject) => {
+        if(a > b) {
+        resolve(true)
+	    } else {
+	        reject(false)
+	    }
+	})
+}
+isGreater(1, 2)
+    .then(result => {
+    console.log('greater')
+})
+.catch(result => {
+    console.log('smaller')
+})
+
+
+</script>
+</body>
+</html>

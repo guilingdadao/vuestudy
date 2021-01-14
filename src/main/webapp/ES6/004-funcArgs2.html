@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app"></div>
+<script type="text/javascript">
+//函数参数 - 默认值、参数打包、 数组展开（Default 、Rest 、Spread）
+
+/**
+ * 辅助函数
+ */
+function misparam() {
+	throw new Error('没有参数');
+}
+
+/***
+ * 函数要求必须传递函数,否报错.
+ * 采用默认值进行验证.
+ * 传递了值,就不会调用misparam函数,未传值就会调用
+ */
+function foo(mustBeProvided = misparam()) {
+
+	console.log("传递的值为:" + mustBeProvided);
+	
+   return mustBeProvided;
+}
+
+foo(12);
+foo();//004-funcArgs2.html:19 Uncaught Error: 没有参数
+
+
+/**
+ * 传统检查方式，则代码繁琐
+ */
+function foo1(mustBeProvided) { 
+    if (arguments.length < 1) { 
+        throw new Error(); 
+    } 
+    if (! (0 in arguments)) { 
+        throw new Error(); 
+    } 
+    if (mustBeProvided === undefined) { 
+        throw new Error(); 
+    } 
+ //   ··· 
+} 
+//optionalParam表示可选参数，可以使用，可以不用。而requiredParam是正常必须的。
+function foo(requiredParam, optionalParam = undefined) {      
+	//··· 
+}
+
+</script>
+</body>
+</html>

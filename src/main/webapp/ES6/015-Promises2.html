@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app"></div>
+<script type="text/javascript">
+//15.Promises
+//Javascript/ES6 Promise用法
+　//　Javascript Promise代表一个操作的结果还没有完成，将在未来某个时间有确定结果，比如网络请求操作，当我们从某个数据源抓取数据时，实际上没有办法绝对地知道什么时候能够接受到响应。
+
+//如果我们的一些操作依赖这个网络请求操作就会有问题，在没有Promise的情况下，我们得使用callback来处理响应完成时的动作，
+//如果只有一个异步动作这也许没有问题，但是如果有多个异步动作，回调变得无法管理导致著名的回调陷阱。
+doSomething(function(responseOne )  {
+	
+     doSomethingElse(responseOne ,  function(responseTwo , err )  { 
+         
+         if  (err )  {  handleError(err );  } 
+         
+         doMoreStuff(responseTwo ,  function(responseThree , err )  { 
+             
+             if  (err )  {  handleAnotherError(err );  } 
+             
+             doFinalThing(responseThree ,  function(err )  { 
+                 
+                 if  (err )  {  handleAnotherError(err );  } 
+                 
+                 // Complete 
+             });  // end doFinalThing 
+             
+         });  // end doMoreStuff 
+         
+     });  // end doSomethingElse 
+     
+});  // end doSomething 
+ 
+//Promise提供标准的干净的按照顺序发生的任务：
+doSomething()  
+.then(doSomethingElse ) 
+.catch(handleError ) 
+.then(doMoreStuff ) 
+.then(doFinalThing ) 
+.catch(handleAnotherError ) ;
+
+//创建Promise
+//一个Promise使用Promise构造器创建，这个函数接受两个参数resolve和reject：
+var promise  =  new  Promise(  function(resolve , reject )  {  /* Promise content */  }  ) ;
+
+//在这个函数中，我们能够执行我们想要的异步任务，然后需要标记Promise状态，当标记promise为fulfilled时，我们需要调用resolve()，可选情况下可传递我们希望返回的一个值；
+//如果失败，需要标记promise为rejected，调用reject()；可选情况下可传递一个错误信息，在这个promise真正完成fulfilled或被拒绝rejected之前，它的状态是一个待定状态。
+
+//下面是XMLHttpRequest的promise版本：
+function  get(url )  {
+	
+   return  new  Promise(function(resolve , reject )  {
+	    
+	   var req  =  new  XMLHttpRequest(); 
+	   req .open('GET', url ); 
+	     req .onload  =  function()  { 
+	       if  (req .status  ==  200)  {
+	            
+	           resolve(req .response );  /* PROMISE RESOLVED */
+	            
+	       }  else  { 
+	           reject(Error(req .statusText ));  /* PROMISE REJECTED */ 
+	       } 
+	     }; 
+	 
+	    req .onerror  =  function()  {  reject(Error("Network Error"));  }; 
+	    req .send(); 
+   }); 
+} 
+ 
+
+//使用Promise
+//一旦我们创建Promise，我们需要实际使用它，可以像普通函数调用，但是有些不同，需要访问其.then()方法。
+//.then()方法接受两个可选参数，
+//首先，如果promise被实现fulfilled第一个函数被调用，
+//如果promise被拒绝第二个函数被调用：
+get(url )  
+.then(function(response )  { 
+     /* successFunction */ 
+},  function(err )  { 
+     /* errorFunction */ 
+}) 
+ 
+
+//处理错误
+//上面代码我们是将错误与成功放在同一个函数中，为了具有可读性，我们将成功和错误放在各种独立的两个.then()中。
+
+get(url )  
+.then(function(response )  { 
+     /* successFunction */ 
+}, undefined ) 
+.then(undefined ,  function(err )  { 
+     /* errorFunction */ 
+}) 
+ 
+
+//为了了处理错误，我们可以使用.catch()方法，它是.then(undefined, errorFunction)的另外一种速记写法：
+
+get(url )  
+.then(function(response )  { 
+     /* successFunction */ 
+}) 
+.catch(function(err )  { 
+     /* errorFunction */ 
+}) 
+ 
+
+//链式chaining
+//当有多个异步函数时我们需要按顺序执行，可以将多个.then()像链条一样串联起来，创建一个异步函数序列。
+
+get(url )  
+.then(function(response )  {
+    response  = JSON .parse(response ); 
+     var secondURL  = response .data .url
+     return  get( secondURL  );  /* Return another Promise */ 
+}) 
+.then(function(response )  { 
+    response  = JSON .parse(response ); 
+     var thirdURL  = response .data .url
+     return  get( thirdURL  );  /* Return another Promise */ 
+}) 
+.catch(function(err )  { 
+     handleError(err ); 
+}); 
+//如果Promise链条中一个环节完成了，会按序列移动到下一个链条，如果有一个环节失败rejected，会直接跳到下一个错误函数.catch()。
+
+
+
+//并行执行Promise
+//如果能够并行执行这些链条上异步任务将会提高性能，现在我们需要两个方法来完成：Array.map()方法允许我们逐个执行数组中的动作，然后创建这些动作完成后的结果数组。
+
+//Promise.all()方法返回一个成功完成每个promise数组，如果任何这个数组中任何一个promise被拒绝也就是失败，Promise.all()会也拒绝或失败。
+
+var arrayOfURLs  =  ['one.json',  'two.json',  'three.json',  'four.json'];
+
+var arrayOfPromises  = arrayOfURLs .map(get); 
+ 
+Promise .all(arrayOfPromises )  
+.then(function(arrayOfResults )  { 
+	
+     /* Do something when all Promises are resolved */ 
+    
+}) 
+.catch(function(err )  { 
+	
+     /* Handle error is any of Promises fails */ 
+}) 
+</script>
+</body>
+</html>

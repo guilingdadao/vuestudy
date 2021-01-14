@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>练习slot插槽</title>
+<style type="text/css">
+
+</style>
+<script src="./js/vue.js"></script>
+</head>
+<body>
+<h1>练习使用插槽</h1>
+	<div id="app">
+		<todo>
+			<todo-title slot="todo-title" :title="title"></todo-title>
+			<todo-item slot="todo-item" v-for="(item,idx) in hobbyItems" :key="idx" :item="item"></todo-item>
+			
+		</todo>
+	</div>
+
+	<script type="text/javascript">
+	Vue.component("todo",{
+		template:`
+			<div>
+				<slot name="todo-title"></slot>
+				<ul>
+					<slot name="todo-item"></slot>
+				</ul>
+			</div>
+		`
+	});
+	
+	Vue.component('todo-title',{
+		props:['title'],
+		template:`
+			<div>{{title}}</div>
+		`
+	});
+	Vue.component('todo-item',{
+		props:['item'],
+		template:`
+			<li idx='{{idx}}'>{{item}}</li>
+		`
+	});
+		var app = new Vue({
+			el:'#app',
+			data:{
+				title:'我的爱好',
+				hobbyItems:['骑马','射箭','看姑娘']
+			}
+		});
+	</script>
+</body>
+</html>

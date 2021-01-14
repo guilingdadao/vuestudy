@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>props性</title>
+<script src="../js/vue.js"></script>
+
+</head>
+
+<body>
+<div id="app">
+	<title-test :initial-counter="initialCounter" v-on:my-event="doSomething"></title-test>
+	
+</div>
+<script>
+Vue.component("title-test",{
+	props: ['initialCounter'],
+	data:function(){
+		return {
+			 counter: this.initialCounter
+		}
+	},
+	template:`
+		<div>
+			<h2>你点击了{{counter}}次,<button @click="upCounter">点击</button></h2>
+			<h2>初始值为:{{initialCounter}}</h2>
+		</div>
+	`,
+	methods:{
+		upCounter:function(){
+
+			this.$emit('my-event');//触发my-event事件
+			
+			this.counter++;
+		}
+	}
+});
+
+var app = new Vue({
+	el:"#app",
+	data:{
+		initialCounter:10
+	},
+	methods:{
+		superChangeCounter:function(){
+			this.initialCounter++;
+		},
+		doSomething:function(){
+			let val = Math.random();
+			console.log('do-something......' + " ," + val +" , " + new Date().toString() );
+		}	
+	}
+});
+</script>
+</body>
+</html>

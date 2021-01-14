@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>计算属性</title>
+
+<!-- 因为 AJAX 库和通用工具的生态已经相当丰富，Vue 核心代码没有重复-->
+<!--  提供这些功能以保持精简。这也可以让你自由选择自己更熟悉的工具。	-->
+<script src="../js/vue.js"></script>
+<script src="../js/lodash.min1.8.3.js"></script>
+<script src="../js/axios-0.21.0.js"></script>
+
+</head>
+
+<body>
+
+<div id="app">
+	<blog-post v-for="item in blogdata" 
+		:title='item.title'
+		:key="item.id"
+		:content='item.content'></blog-post>
+</div>
+
+<script>
+Vue.component('blog-post',{
+	props : ['id','title','content'],
+	template : '<div><p v-html="title"></p><p v-html="content"></p></div>'
+});
+
+var vm  = new Vue({ el : "#app",
+	data:{
+	blogdata:[
+				{title:'<h2>hello, java</h2>',content:'<p>java is a pragram languange!</p>'},
+				{title:'<h2>hello, c</h2>',content:'<p>c is a pragram languange!</p>'},
+				{title:'<h2>hello, python</h2>',content:'<p>python is a pragram languange!</p>'},
+				{title:'<h2>hello, sql</h2>',content:'<p>sql is a pragram languange!</p>'},
+				{title:'<h2>hello, php</h2>',content:'<p>php is a pragram languange!</p>'}
+			]
+	}});
+
+</script>
+
+</body>
+</html>

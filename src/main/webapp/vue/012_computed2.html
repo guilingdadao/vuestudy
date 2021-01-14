@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>计算属性</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="demo">
+
+<button @click="changeMsg">变更为数</button>
+
+<p>使用watch方式：{{ fullName }}</p>
+<p>计算属性方式：{{ fullName2 }}</p>
+<p>很明显计算属性好多了</p>
+
+</div>
+
+<script type="text/javascript">
+	var vm = new Vue( {
+		el : '#demo',
+		data : {
+			firstName : 'Foo',
+			lastName : 'Bar',
+			fullName : 'Foo Bar'
+		},
+		methods:{
+				changeMsg:function(){
+					this.firstName='zhangsan' + Math.random();
+				}
+			},
+		watch : {// 监视方式
+			firstName : function(val) {
+				this.fullName = val + ' ' + this.lastName
+			},
+			lastName : function(val) {
+				this.fullName = this.firstName + ' ' + val
+			}
+		},
+		computed : {
+			fullName2 : function() {
+				return this.firstName + ' ' + this.lastName
+			}
+		}
+	})
+</script>
+</body>
+</html>

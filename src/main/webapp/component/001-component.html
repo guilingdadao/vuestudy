@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>计算属性</title>
+
+<!-- 因为 AJAX 库和通用工具的生态已经相当丰富，Vue 核心代码没有重复-->
+<!--  提供这些功能以保持精简。这也可以让你自由选择自己更熟悉的工具。	-->
+<script src="../js/vue.js"></script>
+<script src="../js/lodash.min1.8.3.js"></script>
+<script src="../js/axios-0.21.0.js"></script>
+
+</head>
+
+<body>
+
+<div id="app">
+	<button-counter></button-counter>
+	<button-counter></button-counter>
+	<button-counter></button-counter>
+	<button-counter></button-counter>
+</div>
+
+
+<script>
+//定义一个名为 button-counter 的新组件
+Vue.component('button-counter', {
+  data: function () {//一个组件的 data 选项必须是一个函数，因此每个实例可以维护一份被返回对象的独立的拷贝
+    return {
+      count: 0
+    }
+  },
+  template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+});
+
+var app = new Vue({
+	el:'#app'
+});
+</script>
+</body>
+</html>

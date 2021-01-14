@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app">
+	<button @click="changeMsg">更改msg值</button>
+	<p>{{msg}}</p>
+</div>
+<script type="text/javascript">
+	var app = new Vue( {
+		el : '#app',
+		data : {
+			msg : 'hello,Vue'
+		},
+		methods:{
+			changeMsg:function(){
+				this.msg = Math.random();
+			}
+		},
+		created : function() {
+			console.log("创建之后，msg值为："+this.msg);
+		},
+		mounted:function(){
+			console.log("mounted之后，msg值为："+this.msg);
+		},
+		updated:function(){
+			console.log("updated之后，msg值为："+this.msg);
+		},
+		destroyed:function(){
+			console.log("destroyed之后，msg值为："+this.msg);
+		}
+
+	});
+	 
+</script>
+</body>
+</html>

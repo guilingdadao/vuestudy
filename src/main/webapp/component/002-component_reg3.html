@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>计算属性</title>
+
+<!-- 因为 AJAX 库和通用工具的生态已经相当丰富，Vue 核心代码没有重复-->
+<!--  提供这些功能以保持精简。这也可以让你自由选择自己更熟悉的工具。	-->
+<script src="../js/vue.js"></script>
+
+</head>
+
+<body>
+
+<p>
+有两种组件的注册类型：局部注册
+</p>
+
+<div id="app">
+	<header-a :title="title"></header-a>
+	<leftcon-a :lcontent="leftContent"></leftcon-a>
+	<rightcon-a :rightcontent="rightcontent"></rightcon-a>
+	<footer-a :footer="footer"></footer-a>
+</div>
+
+
+<script>
+let header= {
+	props:['title'],
+	template:`
+	<div>\
+		<h2>{{title}}</h2>\
+	</div>
+	`		
+};
+// {{ a-b }}//其中"-"会被认为是减号,不是连接号
+let leftCon={
+		props:['lcontent'],
+		template:`
+		<div>\
+			<h2>{{lcontent}}</h2>\
+		</div>
+		`	
+};
+let rightCon={
+		props:['rightcontent'],
+		template:`
+		<div>\
+			<h2>{{rightcontent}}</h2>\
+		</div>
+		`	
+};
+let footer = {
+		props:['footer'],
+		template:`
+		<div>\
+			<h2>{{footer}}</h2>\
+		</div>
+		`	
+};
+
+var app = new Vue({
+	el:"#app",
+	components:{
+		'header-a':header,
+		'leftcon-a':leftCon,// leftcon-a 不能写成leftCon-a
+		'rightcon-a':rightCon,
+		'footer-a':footer
+	},
+	data:{
+		title:'你好,标题部分123',
+		leftContent:'你好,左边部分',
+		rightContent:'你好,右边部分',
+		footer:'网页脚部分'
+	}
+});
+</script>
+
+
+</body>
+</html>

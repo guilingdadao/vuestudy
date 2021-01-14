@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>component</title>
+
+<!-- 因为 AJAX 库和通用工具的生态已经相当丰富，Vue 核心代码没有重复-->
+<!--  提供这些功能以保持精简。这也可以让你自由选择自己更熟悉的工具。	-->
+<script src="../js/vue.js"></script>
+</head>
+<body>
+
+<!--Prop 的大小写 (camelCase vs kebab-case)-->
+<!--
+HTML 中的 attribute 名是大小写不敏感的，所以浏览器会把所有大写字符解释为小写字符。
+这意味着当你使用 DOM 中的模板时，camelCase (驼峰命名法) 的 prop 名需要使用其等价的 kebab-case (短横线分隔命名) 
+-->
+
+<div id="app">
+	<blog-post :post-title="postTitle"></blog-post>
+</div>
+
+<script>
+Vue.component('blog-post',{
+	props:['postTitle'],
+	template:`
+		<div>
+			<h2>{{postTitle}}</h2>
+		</div>
+	`
+});
+var app = new Vue({
+	el:'#app',
+	data:{
+		postTitle:'圭田圭圆是什么?'
+	}
+});
+
+</script>
+
+
+</body>
+</html>

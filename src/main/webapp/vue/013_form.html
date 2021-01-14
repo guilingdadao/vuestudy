@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>表单元素测试</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app">
+<h4>单文本框</h4>
+<input v-model="message" placeholder="edit me!" />
+<p>你输入了:{{message}}</p>
+
+<h4>多文本框</h4>
+
+<span>Multiline message is:</span>
+<p style="white-space: pre-line;">{{ multiMsg }}</p>
+<br>
+<textarea v-model="multiMsg" placeholder="add multiple lines"></textarea>
+
+
+<h4>单个复选框，绑定到布尔值</h4>
+
+<input type="checkbox" id="checkbox" v-model="checked">
+<label for="checkbox">{{ checked }}</label>
+
+
+
+<h4>多个复选框，绑定到同一个数组</h4>
+
+<input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+<label for="jack">Jack</label>
+
+<input type="checkbox" id="john" value="John" v-model="checkedNames">
+<label for="john">John</label>
+
+<input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+<label for="mike">Mike</label>
+<br>
+
+<span>Checked names: {{ checkedNames }}</span>
+
+
+
+  <h4>多个复选框，绑定到同一个数组</h4>
+  <input type="radio" id="one" value="One" v-model="picked">
+  <label for="one">One</label>
+  <br>
+  <input type="radio" id="two" value="Two" v-model="picked">
+  <label for="two">Two</label>
+  <br>
+  <span>Picked: {{ picked }}</span>
+
+
+  <h4>下拉列表-单选</h4>
+  
+  <select v-model="selected">
+    <option disabled value="">请选择</option>
+    <option value="a">A</option>
+    <option value="b">B</option>
+    <option value="c">C</option>
+  </select>
+  <span>Selected: {{ selected }}</span>
+  
+  <h4>下拉列表-多选</h4>
+  
+  <select v-model="mselected" multiple style="width: 50px;">
+    <option value="a">A</option>
+    <option value="b">B</option>
+    <option value="c">C</option>
+  </select>
+  <span>Selected: {{ mselected }}</span>  
+
+
+  <h4>用 v-for 渲染的动态选项</h4>
+
+	<select v-model="defaultNum">
+	  <option v-for="opt in numList" v-bind:value="opt.value">
+	    {{ opt.text }}
+	  </option>
+	</select>
+	<span>Selected: {{ defaultNum }}</span>
+
+
+</div>
+<script>
+	var app = new Vue( {
+		el : '#app',
+		data : {
+			message : 'hello, Aby\'s father!',
+			multiMsg:'你好吗?',
+			checked:true,
+			checkedNames:['Jack','John'],
+			picked:'Two',
+			selected:'',
+			mselected:[],
+			defaultNum:'B',
+			numList:[
+			         { text: 'One', value: 'A' },
+			         { text: 'Two', value: 'B' },
+			         { text: 'Three', value: 'C' }
+					]
+		}
+
+	});
+</script>
+</body>
+</html>

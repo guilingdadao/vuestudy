@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+<script src="../js/vue.js"></script>
+
+<script type="text/javascript">
+window.onload=function(){
+	var arr = ['zhangsan','lisi','wangwu'];
+	var msg = arr.map(function(name){
+
+			return (
+					'<li>' +'<b>' + name + '</b>' +'</li>'
+					);
+		}).join('');
+
+	document.getElementById("msg").innerHTML = msg;
+}
+</script>
+</head>
+
+<body>
+
+<ul id="msg">
+
+</ul>
+
+</body>
+</html>

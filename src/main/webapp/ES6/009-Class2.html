@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app"></div>
+<script type="text/javascript">
+//9.Class
+/**
+　　类语法是Javascript面向对象的语法糖，并不对原来有影响，还是能使用构造器和原型方式。
+
+构造器方法是用来创建和初始化对象的特殊方法，它是每次运行都创建一个新的实例。
+class nameOfClass {
+   constructor(name, description url) {
+    this.name = name;
+    this.description = description;
+    this.url = url;
+  } 
+   render() {
+ // instance methods
+ }   
+ _privateMethod() {       
+ // private methods
+ }
+} 
+
+带有下划线的方法表明这个方法不应该从公共API调用。
+
+类的调用：
+
+let instance = new nameOfClass(name, description, url);  
+instance.render();  
+ 
+
+为了重用代码，类可以使用继承，子类就能使用父类中的方法行为：
+
+class Child extends Parent { 
+  constructor() {
+    super();
+  }
+ 
+  parse() {
+    let parentParse = super.parse();
+    // vary the parse method in the child
+  } 
+  render() {
+    // 能够访问从父类继承的方法和属性
+  }
+} 
+super()是用来运行父类的构造器函数。
+*/
+
+class Person{
+	
+	constructor(name,age,email){
+		this.name = name;
+		this.age = age;
+		this.email = email;
+	}
+	
+	printMsg(){
+		this._printInnerMsg();
+	}
+	
+	_printInnerMsg(){//带有下划线的方法表明这个方法不应该从公共API调用。只是建议表示
+		console.log(this.name +" , "+ this.age +" , " + this.email);
+	}
+}
+
+var p = new Person('zhangsan',23,'zhangsan@bjrcb.com');
+p.printMsg();
+//p._printInnerMsg();//带有下划线的方法表明这个方法不应该从公共API调用。只是建议表示
+
+
+</script>
+</body>
+</html>

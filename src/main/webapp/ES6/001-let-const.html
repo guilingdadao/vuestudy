@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app"></div>
+<script type="text/javascript">
+//1.块级作用域 关键字let, 常量const
+
+//ES6 新增了let命令，用来声明变量，与var不同的是，用它声明的变量只有在let所在的代码块内有效。例如：
+{
+    let a = 1;
+    var b = 2;
+}
+console.log(a);//Uncaught ReferenceError: a is not defined
+console.log(b);//2
+
+//这意味着通过let声明的变量就像在闭包中的变量一样，外部无法访问，并且let声明的变量不像var声明的变量会发生变量提升现象，所以用let声明的变量一定要在声明后才能使用，否则会报错。
+
+console.log(a);//Uncaught ReferenceError: a is not defined
+console.log(b);//undefined
+let a = 1;
+var b = 2;
+//在代码内使用let声明的变量，该变量不能不能在声明之前使用，在语法上称之为：Temporal Dead Zone（TDZ，暂时性死区）。ES6之所以规定TDZ，主要是为了减少运行时错误，防止在变量声明前使用这个变量，从而导致意外的行为。
+//另外let事实上为 JavaScript 新增了跨级作用域，这样只有子作用域能够访问到父级作用域的变量，父级是不能访问子级的，这样我们可以采用这种方式来替换 ES5 时代的闭包。
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<!--
+	请注意这个案例有点问题，原因还未知？？？？？？？？？？？？？？？？？
+	1、组件名称 使用uList，userList有问题
+	2、生成的组件，没有位于table内，而是放到表格外。
+ -->
+<div id="app">
+	<table>
+		<tr><td>ID</td><td>Name</td><td>age</td></tr>
+		<hello
+		 v-for="u in userList" 
+		 v-bind:usr="u"
+		 v-bind:key="u.id"></hello>
+	</table>
+</div>
+
+<script type="text/javascript">
+Vue.component('hello',{
+	props:['usr'],
+	template:'<tr><td>{{usr.id}}</td><td>{{usr.name}}</td><td>{{usr.age}}</td></tr>'
+});
+
+var vm = new Vue({
+	 el:"#app",
+	 data: {
+		userList:[
+	          {id:1,name:'张三1',age:10},
+	          {id:2,name:'张三2',age:20},
+	          {id:3,name:'张三3',age:30},
+	          {id:4,name:'张三4',age:40},
+	          {id:5,name:'张三5',age:50}
+			]
+	}
+});
+</script>
+</body>
+</html>

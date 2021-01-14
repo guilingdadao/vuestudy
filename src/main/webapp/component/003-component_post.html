@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>计算属性</title>
+
+<!-- 因为 AJAX 库和通用工具的生态已经相当丰富，Vue 核心代码没有重复-->
+<!--  提供这些功能以保持精简。这也可以让你自由选择自己更熟悉的工具。	-->
+<script src="../js/vue.js"></script>
+<script src="../js/lodash.min1.8.3.js"></script>
+<script src="../js/axios-0.21.0.js"></script>
+
+</head>
+
+<body>
+
+<div id="app">
+	<blog-post title='java' content='java is a pragram languange!'></blog-post>
+</div>
+
+<script>
+Vue.component('blog-post',{
+	props : ['title','content'],
+	//template : '<p><div>{{title}}</div><div>{{content}}</div></p>'// 使用p做根节点，会出现错误，使用div就没有问题
+	template : '<div><p>{{title}}</p><p>{{content}}</p></div>'
+});
+
+var vm  = new Vue({ el : "#app"});
+
+</script>
+
+</body>
+</html>

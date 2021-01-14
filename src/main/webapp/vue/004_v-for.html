@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GB18030">
+<title>搭建vue环境，测试一下vue</title>
+<script type="text/javascript" src="../js/vue.js"></script>
+
+</head>
+<body>
+<h2>使用v-for进行练习</h2>
+
+<div id="app">
+	<div>
+		<ul>
+			<li v-for="u in userList">{{u.name}}----{{u.age}}</li>
+		</ul>
+	</div>
+</div>
+
+<script type="text/javascript">
+var app = new Vue({
+	el:'#app',
+	data:{
+		userList:[
+		          {name:'张三',age:20},
+		          {name:'李四',age:30},
+		          {name:'麻子',age:40}
+		  		]
+	}
+});
+</script>
+</body>
+</html>

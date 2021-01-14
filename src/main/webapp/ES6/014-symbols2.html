@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app"></div>
+<script type="text/javascript">
+//14.Symbols
+//Javascript/ES6的Symbol用法
+//　　Symbol是一个不可变的数据类型，用来产生唯一的标识，但是却无法直接访问这个标识。
+//这里是创建一个symbol：
+
+var sym = Symbol( "some optional description" );  
+console.log(typeof sym); // symbol
+//请注意，你不能使用new Symbol创建它。
+
+//如果一个symbol被用于对象的属性/key，它是以特殊方式存储，不会以正常方式显示在对象的属性中。
+
+var o = {
+       val: 10,
+      [ Symbol("random") ]: "I'm a symbol",
+  };    
+console.log(Object.getOwnPropertyNames(o)); // val
+
+//为了返回一个对象的symbol属性，必须使用Object.getOwnPropertySymbols(o)
+
+//ES6有一个Symbol.iterator，能够指定对象的默认iterator：
+var arr = [11,12,13];
+
+var itr = arr[Symbol.iterator]();    
+
+itr.next(); // { value: 11, done: false }  
+itr.next(); // { value: 12, done: false }  
+itr.next(); // { value: 13, done: false }   
+itr.next(); // { value: undefined, done: true }
+
+</script>
+</body>
+</html>

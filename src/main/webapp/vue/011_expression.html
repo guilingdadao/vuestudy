@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>模板内的表达式</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app">
+	<button @click="changeMsg">更改msg值</button>
+	
+	<p>值：{{msg.split('').reverse().join('')}}</p>
+</div>
+<script type="text/javascript">
+	var app = new Vue( {
+		el : '#app',
+		data : {
+			msg : 'hello,Vue'
+		},
+		methods:{
+			changeMsg:function(){
+				this.msg = ''+ Math.random();
+			}
+		}
+	});
+	 
+</script>
+</body>
+</html>

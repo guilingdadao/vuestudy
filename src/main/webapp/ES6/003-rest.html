@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Spread 操作符用于对象融合</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app"></div>
+<script type="text/javascript">
+//Javascript/ES6的Spread / Rest操作符
+　//　三个点“...” 是spread或rest操作符，取决于你如何和怎样使用它们。
+//ECMAScript 6引入三个点“...”语法用来分别代表一个数组参数列表。
+
+//rest操作符主要用于获得传递给函数的参数列表，案例代码：
+function countArguments(...args) { 
+　　return args.length;
+}
+// 获得参数的数量
+countArguments('welcome', 'to', 'Earth'); // => 3  
+
+
+</script>
+</body>
+</html>

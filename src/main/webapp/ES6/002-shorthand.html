@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app"></div>
+<script type="text/javascript">
+//2.对象字面量的属性赋值简写（property value shorthand）
+var obj = {
+    // __proto__
+    __proto__: theProtoObj,
+    // Shorthand for ‘handler: handler’
+    handler,
+    // Method definitions
+    toString() {
+    // Super calls
+    	return "d " + super.toString();
+    },
+    // Computed (dynamic) property names
+    [ 'prop_' + (() => 42)() ]: 42
+};
+</script>
+</body>
+</html>

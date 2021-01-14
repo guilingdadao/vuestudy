@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app">
+
+<h1>{{name}}</h1>
+
+<p>{{age}}</p>
+
+<input type="text" v-model="name" /></div>
+<script type="text/javascript">
+	window.onload = function() {
+		var vm = new Vue( {
+			el : '#app',
+			data : {
+				name : '张三',
+				age : 30
+			}
+		});
+	}
+</script>
+</body>
+</html>

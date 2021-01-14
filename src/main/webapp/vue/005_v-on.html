@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GB18030">
+<title>搭建vue环境，测试一下vue</title>
+<script type="text/javascript" src="../js/vue.js"></script>
+
+</head>
+<body>
+<h2>使用v-on进行练习</h2>
+
+<div id="app">
+	<p>{{message}}</p>
+	<button v-on:click="reverseMessage">进行字符串进行翻转</button>
+</div>
+
+<script type="text/javascript">
+var app = new Vue({
+	el:'#app',
+	data:{
+		message:'Hello My baby !我是一名三好学生！！！'
+	},
+	methods:{
+		reverseMessage:function(){
+			this.message = this.message.split('').reverse().join('');
+		}	
+	}
+});
+</script>
+</body>
+</html>
