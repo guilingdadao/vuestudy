@@ -12,7 +12,10 @@
 	<h2>{{msg}}</h2>
 </div>
 <script type="text/javascript">
-var obj={msg:'hello'};
+
+var obj={
+		msg:'hello'
+	};
 
 	var app = new Vue( {
 		el : '#app',
@@ -24,7 +27,9 @@ console.log("属性比对："+ (app.$el === document.getElementById("app")));
 
 //观察msg值，如果有变化时，就是调用下面的函数
 app.$watch('msg',function(newVal,oldVal){
+	
 	console.log("新值为:" + newVal +" , 旧值为：" +oldVal);
+	
 });
 </script>
 </body>

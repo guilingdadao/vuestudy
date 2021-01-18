@@ -8,24 +8,26 @@
 
 <body>
 
-<div id="app">
-	<button @click="changeMsg">更改msg值</button>
+	<div id="app">
 	
-	<p>值：{{msg.split('').reverse().join('')}}</p>
-</div>
-<script type="text/javascript">
-	var app = new Vue( {
-		el : '#app',
-		data : {
-			msg : 'hello,Vue'
-		},
-		methods:{
-			changeMsg:function(){
-				this.msg = ''+ Math.random();
+		<button @click="changeMsg">更改msg值</button>
+
+		<p>值：{{msg.split('').reverse().join('')}}</p>
+		
+	</div>
+	
+	<script type="text/javascript">
+		var app = new Vue({
+			el : '#app',
+			data : {
+				msg : 'hello,Vue'
+			},
+			methods : {
+				changeMsg : function() {
+					this.msg = '' + Math.random();
+				}
 			}
-		}
-	});
-	 
-</script>
+		});
+	</script>
 </body>
 </html>

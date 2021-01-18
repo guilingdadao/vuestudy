@@ -8,23 +8,27 @@
 
 <body>
 
-<div id="app">
+	<div id="app">
 
-<h1>{{name}}</h1>
+		<h1>{{name}}</h1>
 
-<p>{{age}}</p>
+		<p>{{age}}</p>
 
-<input type="text" v-model="name" /></div>
-<script type="text/javascript">
-	window.onload = function() {
-		var vm = new Vue( {
-			el : '#app',
-			data : {
-				name : '张三',
-				age : 30
-			}
-		});
-	}
-</script>
+		<input type="text" v-model="name" />
+
+	</div>
+
+
+	<script type="text/javascript">
+		window.onload = function() {
+			var vm = new Vue({
+				el : '#app',
+				data : {
+					name : '张三',
+					age : 30
+				}
+			});
+		}
+	</script>
 </body>
 </html>

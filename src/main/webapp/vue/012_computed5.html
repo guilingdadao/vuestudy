@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>lodash函数测试</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+	<div id="watch-example">
+		<p>
+			Ask a yes/no question: <input v-model="question">
+		</p>
+		<p>
+		<div>{{ answer }}</div>
+		<div>{{ forced }}</div>
+		<div>调用次数:{{ callCount }} - 执行次数: {{exeCount}}</div>
+		</p>
+	</div>
+	<script src="../js/vue.js"></script>
+	<script src="../js/lodash.min1.8.3.js"></script>
+	<script>
+var watchExampleVM = new Vue({
+  el: '#watch-example',
+  data: {
+    question: '',
+    answer: 'I cannot give you an answer until you ask a question!',
+    forced:false,
+    image:'',
+    callCount:0,
+    exeCount:0
+  },
+  watch: {
+    question: function (newQuestion, oldQuestion) {
+    	
+      this.answer = 'Waiting for you to stop typing...'
+      
+      this.debouncedGetAnswer();
+      
+      this.callCount++;
+    }
+  },
+  created: function () {
+   
+    this.debouncedGetAnswer = _.debounce(this.getAnswer, 500,{
+    	  //'maxWait':2000,//设置 func 允许被延迟的最大值
+    	  'leading': false,//指定在延迟开始前调用。
+    	  'trailing': true//指定在延迟结束后调用。
+    	});
+  },
+  methods: {
+    getAnswer: function () {
+      
+      this.answer = 'Thinking...' + (++this.exeCount) ;
+    }
+  }
+})
+</script>
+</body>
+</html>

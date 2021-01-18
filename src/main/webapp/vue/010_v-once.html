@@ -8,23 +8,25 @@
 
 <body>
 
-<div id="app">
-	<button @click="changeMsg">更改msg值</button>
-	<p v-once>值不变更：{{msg}}</p>
-</div>
-<script type="text/javascript">
-	var app = new Vue( {
-		el : '#app',
-		data : {
-			msg : 'hello,Vue'
-		},
-		methods:{
-			changeMsg:function(){
-				this.msg = Math.random();
+	<div id="app">
+
+		<button @click="changeMsg">更改msg值</button>
+
+		<p v-once>值不变更：{{msg}}</p>
+	</div>
+
+	<script type="text/javascript">
+		var app = new Vue({
+			el : '#app',
+			data : {
+				msg : 'hello,Vue'
+			},
+			methods : {
+				changeMsg : function() {
+					this.msg = Math.random();
+				}
 			}
-		}
-	});
-	 
-</script>
+		});
+	</script>
 </body>
 </html>

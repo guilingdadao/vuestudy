@@ -8,44 +8,45 @@
 
 <body>
 
-<div id="app">
-<button @click="changeMsg">更改msg值</button>
+	<div id="app">
+		<button @click="changeMsg">更改msg值</button>
 
-<p>值1（原值）：{{msg}}</p>
-<p>值2(计算属性)：{{ reverseMessage }}</p>
-<p>值3（插值表达式）：{{ msg.split('').reverse().join('') }}</p>
-<p>值4（使用方法）：{{reverseMessageMethod() }}</p>
-<p>注意：
-<div>
-<ul>
-	<li>1、计算属性是基于它们的响应式依赖进行缓存的，只在相关响应式依赖发生改变时它们才会重新求值</li>
-	<li>2、这就意味着只要 message 还没有发生改变，多次访问 reversedMessage 计算属性会立即返回之前的计算结果，而不必再次执行函数。</li>
-</ul>
-</div>
-</p>
+		<p>值1（原值）：{{msg}}</p>
+		<p>值2(计算属性)：{{ reverseMessage }}</p>
+		<p>值3（插值表达式）：{{ msg.split('').reverse().join('') }}</p>
+		<p>值4（使用方法）：{{reverseMessageMethod() }}</p>
+		<p>注意：
+		<div>
+			<ul>
+				<li>1、计算属性是基于它们的响应式依赖进行缓存的，只在相关响应式依赖发生改变时它们才会重新求值</li>
+				<li>2、这就意味着只要 message 还没有发生改变，多次访问 reversedMessage
+					计算属性会立即返回之前的计算结果，而不必再次执行函数。</li>
+			</ul>
+		</div>
+		</p>
 
-</div>
-<script type="text/javascript">
-	var app = new Vue( {
-		el : '#app',
-		data : {
-			msg : 'hello,Vue'
-		},
-		methods : {
-			changeMsg : function() {
-				this.msg = '' + Math.random();
+	</div>
+	<script type="text/javascript">
+		var app = new Vue({
+			el : '#app',
+			data : {
+				msg : 'hello,Vue'
 			},
-			reverseMessageMethod : function() {
-				return this.msg.split('').reverse().join('');
-			}
-		},
-		computed : {//声明计算属性
-			reverseMessage : function() {
-				return this.msg.split('').reverse().join('');
-			}
+			methods : {
+				changeMsg : function() {
+					this.msg = '' + Math.random();
+				},
+				reverseMessageMethod : function() {
+					return this.msg.split('').reverse().join('');
+				}
+			},
+			computed : {//声明计算属性
+				reverseMessage : function() {
+					return this.msg.split('').reverse().join('');
+				}
 
-		}
-	});
-</script>
+			}
+		});
+	</script>
 </body>
 </html>

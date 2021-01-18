@@ -9,27 +9,22 @@
 <body>
 
 <div id="app">
+
 <h4>单文本框</h4>
 <input v-model="message" placeholder="edit me!" />
 <p>你输入了:{{message}}</p>
 
 <h4>多文本框</h4>
-
 <span>Multiline message is:</span>
 <p style="white-space: pre-line;">{{ multiMsg }}</p>
-<br>
+<br/>
 <textarea v-model="multiMsg" placeholder="add multiple lines"></textarea>
 
-
 <h4>单个复选框，绑定到布尔值</h4>
-
 <input type="checkbox" id="checkbox" v-model="checked">
 <label for="checkbox">{{ checked }}</label>
 
-
-
 <h4>多个复选框，绑定到同一个数组</h4>
-
 <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
 <label for="jack">Jack</label>
 
@@ -55,7 +50,6 @@
 
 
   <h4>下拉列表-单选</h4>
-  
   <select v-model="selected">
     <option disabled value="">请选择</option>
     <option value="a">A</option>
@@ -65,7 +59,6 @@
   <span>Selected: {{ selected }}</span>
   
   <h4>下拉列表-多选</h4>
-  
   <select v-model="mselected" multiple style="width: 50px;">
     <option value="a">A</option>
     <option value="b">B</option>

@@ -8,43 +8,43 @@
 
 <body>
 
-<div id="demo">
+	<div id="demo">
 
-<button @click="changeMsg">变更为数</button>
+		<button @click="changeMsg">变更为数</button>
 
-<p>使用watch方式：{{ fullName }}</p>
-<p>计算属性方式：{{ fullName2 }}</p>
-<p>很明显计算属性好多了</p>
+		<p>使用watch方式：{{ fullName }}</p>
+		<p>计算属性方式：{{ fullName2 }}</p>
+		<p>很明显计算属性好多了</p>
 
-</div>
+	</div>
 
-<script type="text/javascript">
-	var vm = new Vue( {
-		el : '#demo',
-		data : {
-			firstName : 'Foo',
-			lastName : 'Bar',
-			fullName : 'Foo Bar'
-		},
-		methods:{
-				changeMsg:function(){
-					this.firstName='zhangsan' + Math.random();
+	<script type="text/javascript">
+		var vm = new Vue({
+			el : '#demo',
+			data : {
+				firstName : 'Foo',
+				lastName : 'Bar',
+				fullName : 'Foo Bar'
+			},
+			methods : {
+				changeMsg : function() {
+					this.firstName = 'zhangsan' + Math.random();
 				}
 			},
-		watch : {// 监视方式
-			firstName : function(val) {
-				this.fullName = val + ' ' + this.lastName
+			watch : {// 监视方式
+				firstName : function(val) {
+					this.fullName = val + ' ' + this.lastName
+				},
+				lastName : function(val) {
+					this.fullName = this.firstName + ' ' + val
+				}
 			},
-			lastName : function(val) {
-				this.fullName = this.firstName + ' ' + val
+			computed : {
+				fullName2 : function() {
+					return this.firstName + ' ' + this.lastName
+				}
 			}
-		},
-		computed : {
-			fullName2 : function() {
-				return this.firstName + ' ' + this.lastName
-			}
-		}
-	})
-</script>
+		})
+	</script>
 </body>
 </html>

@@ -24,14 +24,18 @@
 		data : obj,
 		methods : {
 			changeMsg : function() {
+				
 				this.msg = (new Date()).toString();
+				
 			}
 		}
 	});
 
 	//观察msg值，如果有变化时，就是调用下面的函数
 	app.$watch('msg', function(newVal, oldVal) {
+		
 		console.log("新值为:" + newVal + " , 旧值为：" + oldVal);
+		
 	});
 </script>
 </body>
