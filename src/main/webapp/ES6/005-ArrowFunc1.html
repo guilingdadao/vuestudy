@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>练习生命周期</title>
+</head>
+
+<body>
+
+<script type="text/javascript">
+//5.箭头函数 Arrow functions
+　//箭头函数是一种函数简写方式， 定义形式是：
+ 	//参数(...)后面跟着箭头 =>，然后是函数内容体：
+ 
+var getPrice= function(){ return 4.55;}
+console("正常函数："+ getPrice());
+
+// Implementation with Arrow Function 
+var getPrice2 = () =>4.55;
+console("箭头函数："+ getPrice2());
+
+
+
+let arr= ['apple','banana','oracle'];
+
+let breakfast = arr.map((e)=>{
+	console.log('fruit:' + e);
+});
+
+console.log(breakfast)
+
+
+
+</script>
+</body>
+</html>

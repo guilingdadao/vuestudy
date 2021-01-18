@@ -3,12 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>练习生命周期</title>
-<script src="../js/vue.js"></script>
 </head>
 
 <body>
 
-<div id="app"></div>
 <script type="text/javascript">
 //7. Iterators（迭代器）+ for..of
 
@@ -17,9 +15,11 @@
 //一个iterator是一个带有下一个属性的对象，返回的是调用Symbol.iterator方法的结果，
 //我们能使用Object.leys构建一个带有我们对象属性名的数组。
 
-let post = {  
+let post = {
+		
   title: 'Some title',
   replies: 19
+  
 };
 
 post[Symbol.iterator] = function () {

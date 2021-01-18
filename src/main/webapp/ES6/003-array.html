@@ -3,12 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>练习生命周期</title>
-<script src="../js/vue.js"></script>
 </head>
 
 <body>
 
-<div id="app"></div>
 <script type="text/javascript">
 /***3.赋值解构*/
 //　数组在JS6/ES2015中主要提供了数组解构函数，能够让我们分配数组中多个值到数组的多个变量：
@@ -16,7 +14,7 @@ let singer = { first: "Bob", last: "Dylan" };
 
 let { first: f, last: l } = singer; // 相当于 f = "Bob", l = "Dylan"
 
-
+//正则表达式的执行
 let [all, year, month, day] =  /^(\d\d\d\d)-(\d\d)-(\d\d)$/.exec("2015-10-25");
 
 let [x, y] = [1, 2, 3]; // x = 1, y = 2

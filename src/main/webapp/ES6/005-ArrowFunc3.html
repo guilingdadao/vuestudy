@@ -3,55 +3,36 @@
 <head>
 	<meta charset="UTF-8">
 	<title>练习生命周期</title>
-	<script src="../js/vue.js"></script>
 </head>
 
 <body>
 
-<div id="app"></div>
 <script type="text/javascript">
 //5.箭头函数 Arrow functions
-　//箭头函数不只是使得代码变得简短，而且与this绑定行为有紧密关系。
- //带有this关键词的箭头函数行为不同于正常函数，在Javascript中每个函数定义了他自己的this上下文，但是箭头函数中的this则是获得最接近（enclosing 封闭者）上下文的值，看看代码：
+//(1).简化了代码形式，默认return表达式结果。
+//es5
+const greetings = (name) => {
+    return `hello ${name}`;
+}
+//es6
+//const greetings = name => `hello ${name}`;
+console.log(greetings('es5'));
 
- function Person() {
-     //  Person() 构造器定义 `this` 是自己的一个实例
-     this.age = 0;
-  
-     setInterval(function growUp() {
-         // 在non-strict 模型, growUp()函数定义的`this`是全局对象, 不同于上面Person()构造器里面定义的 `this` 
-         this.age++;
-     }, 1000);
- }
- var p = new Person();
-  
+const sayHi= name=>`hello,${name}`;
 
- //在ECMAScript 3/5中，这个问题通过将这个值赋给一个可以被关闭的变量解决：
+console.log(sayHi('张三'));
+console.log(sayHi('李四'));
 
- function Person() {
-     var self = this;
-     self.age = 0;
-      setInterval(function growUp() {
-         // 回调指向`self` 变量的值才是真正期望的对象
-         self.age++;
-     }, 1000);
- }
-  
-
- //再看看箭头函数中this是捕获封闭它的上下文的值，如下面代码：
-
- function Person(){
-	 
-     this.age = 0;
-     
-      setInterval(() => {
-          	//箭头函数中的this则是获得最接近（enclosing 封闭者）上下文的值
-         this.age++; // |this| 指向了person对象
-     }, 1000);
- }
- var p = new Person();
+//注意点：Const表示对值的“恒定引用”。因此，使用const，您实际上可以改变一个被变量引用的对象属性，但是你无法改变引用本身。
+const NAMES = [];
+NAMES.push("Jim");
+console.log(NAMES.length === 1); // true
+NAMES = ["Steve", "John"]; // error
 
 
+
+//(2).自动绑定语义this，即定义函数时的this。如上面例子中，forEach的匿名函数参数中用到的this。
+// 带有this关键词的箭头函数行为不同于正常函数，在Javascript中每个函数定义了他自己的this上下文，但是箭头函数中的this则是获得最接近（enclosing 封闭者）上下文的值
 </script>
 </body>
 </html>

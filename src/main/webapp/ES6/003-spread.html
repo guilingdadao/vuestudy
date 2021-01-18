@@ -3,33 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <title>Spread 操作符用于对象融合</title>
-<script src="../js/vue.js"></script>
 </head>
 
 <body>
 
-<div id="app"></div>
 <script type="text/javascript">
 //Javascript/ES6的Spread / Rest操作符
 　//　三个点“...” 是spread或rest操作符，取决于你如何和怎样使用它们。
+ 
 //当和iterable一起使用时，它扮演spread，展开成独立元素：
 function foo(x,y,z) {
+	
     console.log(x,y,z);
+    
 }
  
 let arr = [1,2,3];
-foo(...arr); // 1 2 3 
- 
+
+foo(...arr); // 1 2 3 展开成独立元素：
+
 
 //另外一个用处是将一个集合的值收集到一个数组中，这就是rest操作：
 function foo(...args) {
+	
     console.log(args);
+    
 }
 foo( 1, 2, 3, 4, 5); // [1, 2, 3, 4, 5] 
-                         
+          
+
 // 操作符用于对象融合
 const obj1 = { a: 1, b: 2 }
 const obj2 = { a: 2, c: 3, d: 4}
+
 const obj3 = {...obj1, ...obj2}
 
 

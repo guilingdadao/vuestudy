@@ -3,12 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>练习生命周期</title>
-<script src="../js/vue.js"></script>
 </head>
 
 <body>
 
-<div id="app"></div>
 <script type="text/javascript">
 /***3.赋值解构*/
 //　数组在JS6/ES2015中主要提供了数组解构函数，能够让我们分配数组中多个值到数组的多个变量：
@@ -27,6 +25,7 @@ function bar() {
         z: 6 
    };
 }
+
 let {x: x, y: y, z: z} = bar();
 
 console.log(x, y, z); // 4 5 6 
