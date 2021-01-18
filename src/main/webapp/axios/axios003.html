@@ -10,43 +10,48 @@
 <body>
 
 
-<div id="app">
-<p><input type="button" value="获取数据" @click="getPerson" /></p>
-<textarea v-model="msg" rows="10" cols="50"></textarea></div>
+	<div id="app">
+		<p>
+			<input type="button" value="获取数据" @click="getPerson" />
+		</p>
+		<textarea v-model="msg" rows="10" cols="50"></textarea>
+	</div>
 
-<script type="text/javascript">
-	var app = new Vue( {
-		el : "#app",
-		data : {
-			msg : '测试数据'
-		},
-		methods : {
-			getPerson : function() {
-				var that = this;
-				//axios(config)
-				axios({
-					  method: 'get',
-					  url: '../data/person.json',
-					  data: {
-					    firstName: 'Fred',
-					    lastName: 'Flintstone'
-					  },
-					  responseType: 'json'//options are: 'arraybuffer', 'document', 'json', 'text', 'stream'
-					  //responseType: 'json'// default
-					}).then(function(res){
-						that.msg = res.data.map(
-								function(p) {
+	<script type="text/javascript">
+		var app = new Vue({
+			el : "#app",
+			data : {
+				msg : '测试数据'
+			},
+			methods : {
+				getPerson : function() {
+					var that = this;
+					//axios(config)
+					axios({
+						method : 'get',
+						url : '../data/person.json',
+						data : {
+							firstName : 'Fred',
+							lastName : 'Flintstone'
+						},
+						responseType : 'json'//options are: 'arraybuffer', 'document', 'json', 'text', 'stream'
+					//responseType: 'json'// default
+					}).then(
+							function(res) {
+								that.msg = res.data.map(
+										function(p) {
 
-									return p.name + " , " + p.github + " , "
-											+ p.twitter + " , " + p.avatar;
+											return p.name + " , " + p.github
+													+ " , " + p.twitter + " , "
+													+ p.avatar;
 
-								}).join('\r\n');
-					},function(e){
-						console.log("hello:"+e);
-						});
+										}).join('\r\n');
+							}, function(e) {
+								console.log("hello:" + e);
+							});
+				}
 			}
-		}
-	});
-</script>
+		});
+	</script>
 </body>
 </html>
