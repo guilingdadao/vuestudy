@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>border-radius</title>
+<style type="text/css">
+/* 为了方便表述，我们将四个角标记成1、2、3、4，如2代表右上角，CSS里提供了border-radius来设置这些角横纵轴半径值。 */
+/* 分别设置横纵轴半径，以“/”进行分隔，遵循“1，2，3，4”规则，“/”前面的1~4个用来设置横轴半径（分别对应横轴1、2、3、4位置），“/”后面1~4个参数用来设置纵轴半径（分别对应纵轴1、2、3、4位置 ）。 */
+/* 支持简写模式，具体如下： */
+
+/* 1、border-radius: 10px;表示四个角的横纵轴半径都为10px； */
+/* 2、border-radius: 10px 5px;表示1和3角横纵轴半径都为10px，2和4角横纵轴半径为5px； */
+/* 3、border-radius: 10px 5px 8px;表示1角模纵轴半径都为10px，2和4角横纵轴半径都为8px，3角的横纵轴半径都为8px； */
+/* 4、border-radius: 10px 8px 6px 4px;表示1角横纵轴半径都为10px，表示2角横纵轴半径都为8px，表示3角横纵轴半径都为6px，表示4角横纵轴半径都为6px； */
+.box {
+	margin: 50px auto;
+	width: 300px;
+	height: 500px;
+	border: 1px solid #ccc;
+	/* 	横轴4个角/纵轴4个角 */
+	border-radius: 10px 20px 50px 100px/10px 20px 50px 100px;
+}
+
+.box2 {
+	margin: 50px auto;
+	width: 300px;
+	height: 500px;
+	border: 1px solid #ccc;
+	border-radius: 10px 100px; /**(1,3)(2,4) */
+}
+
+.box3 {
+	margin: 50px auto;
+	width: 300px;
+	height: 500px;
+	border: 1px solid #ccc;
+	border-radius: 50px 5px 100px; /**1  (2,4) 3 */
+}
+
+.box4 {
+	margin: 50px auto;
+	width: 300px;
+	height: 500px;
+	border: 1px solid #ccc;
+	border-radius: 10px 8px 6px 4px;
+}
+</style>
+</head>
+<body>
+	<div class="box">box</div>
+	<div class="box2">box2</div>
+	<div class="box3">box3</div>
+	<div class="box4">box4</div>
+</body>
+</html>

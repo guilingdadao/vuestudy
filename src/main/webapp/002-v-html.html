@@ -10,14 +10,14 @@
 <body>
 <div id="app">
 	<h2>{{ message }}</h2>
-	<p v-html="link"></p>
-	<p v-text="link"></p>
+	<p v-html="link">将文本插入dom中并解析</p>
+	<p v-text="link">不解析html代码,将文本当做字符串显示再界面上</p>
 	
 	<input type="button" value="切换显示" v-on:click="toggleShow"/>
-	<input type="button" value="简写" @click="toggleShow"/>
-	<input type="button" value="双击" @dblclick="toggleShow"/>
+	<input type="button" value="简写(单击)" @click="toggleShow"/>
+	<input type="button" value="简写(双击)" @dblclick="toggleShow"/>
 	<br />
-	<div v-show="isShow">目前我在北京农商银行工作，我已经工作了10年，在这些年中，我学到很多内容，也忘记了很多内容，有一定的知识广度，却一个精通的方面，目前这是一个短板</div>
+	<div v-show="isShow">目前我在北京农商银行工作，我已经工作了10年，在这些年中，我学到很多内容，也忘记了很多内容，有一定的知识广度，却没有一个精通的方面，目前这是一个短板!!!</div>
 </div>
 
 <script type="text/javascript">

@@ -7,13 +7,18 @@
 
 </style>
 <script src="./js/vue.js"></script>
+<style type="text/css">
+
+</style>
 </head>
 <body>
 	<div id="app">
 		<div id="imgSwitch">
+		
+			<a class="left" v-show="index > 0" @click="pre" href="javascript:void(0)">&lt;&lt;</a>
+		
 			<img alt="图片显示" height="100px" width="200px" v-bind:src="imgArr[index]"/>
 			
-			<a class="left" v-show="index > 0" @click="pre" href="javascript:void(0)">&lt;&lt;</a>
 			<a class="right" v-show="index < imgArr.length-1 " @click="next" href="javascript:void(0)">&gt;&gt;</a>
 		</div>
 	

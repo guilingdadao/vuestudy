@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>xxxxxxxxxxxxxxxx</title>
+<script src="./js/vue.js"></script>
+
+<style type="text/css">
+/* 伪类选择器 */
+/* 除了以前介绍的的:link、:active、:visited、:hover，CSS3又新增了其它的伪类选择器。 */
+
+/* 1、结构（位置）伪类 */
+/* 选择器	含义 */
+/* :first-child	其父元素的第1个子元素 */
+/* :last-child	其父元素的最后1个子元素 */
+/* :nth-child(n)	其父元素的第n个子元素 */
+/* :nth-last-child(n)	其父元素的第n个子元素（倒着数） */
+
+/* 2、空伪类 */
+/* :empty选中没有任何子节点的元素 */
+div:empty { /* 没有子元素的div元素 */
+	width: 100px;
+	height: 100px;
+	background-color: pink;
+}
+
+</style>
+</head>
+<body>
+	<div id="app">
+
+		<!-- css 样式不起作用 -->
+		<div class="one">hello-one</div>
+
+		<!-- css样式不起作用 -->
+		<div>
+			<p>hello-two</p>
+		</div>
+
+		<!-- css样式生效 -->
+		<div></div>
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>xxxxxxxxxxxxxxxx</title>
+<style type="text/css">
+/*
+linear-gradient线性渐变指沿着某条直线朝一个方向产生渐变效果。
+1、必要的元素：
+
+借助Photoshop总结得出线性渐变的必要元素
+	a、方向
+	b、起始色
+	c、终止色
+	d、渐变距离
+2、关于方向
+
+通过具体的方位词指定
+	to left
+	to right
+	to top
+	to bottom
+通过角度改变渐变的方向
+	0°，从下往上渐变
+	90°，从左向右渐变
+*/
+.box {
+	width: 400px;
+	height: 150px;
+	margin: 100px auto;
+	/* 线性渐变 */
+	background-image: linear-gradient(/*渐变的方向*/
+            45deg, /*渐变开始的颜色*/
+            #88f5ea, /*渐变结束的颜色*/
+            #d36be7);
+}
+</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

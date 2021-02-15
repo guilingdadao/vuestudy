@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>xxxxxxxxxxxxxxxx</title>
+<style type="text/css">
+/* 4、排除伪类 */
+/* :not(selector)除selector（任意选择器）外的元素会被选中； */
+/* 除了类名是“.not”的div元素 */
+div:not (.one ) {
+	width: 100px;
+	height:100px;
+	background-color:pink;
+}
+</style>
+</head>
+<body>
+	<div id="app">
+		<!-- css样式不生效 -->
+		<div class="one"></div>
+
+		<!-- css样式生效 -->
+		<p></p>
+
+		<!-- css样式生效 -->
+		<div></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>border-radius</title>
+<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	background-color: wheat;
+	overflow: hidden;
+}
+
+.box {
+	width: 980px;
+	height: 400px;
+	background-color: #fff;
+	margin: 50px auto;
+}
+
+.box li {
+	float: left;
+	width: 193px;
+	height: 193px;
+	background-color: #fff;
+	margin: 5px;
+	box-shadow: 2px 3px 5px #aaa;
+}
+
+li:first-child:after {
+	content: "";
+	height: 130px;
+	width: 130px;
+	margin: 30px auto;
+	display: block;
+	border: 1px solid orangered;
+	border-radius: 50%;
+}
+
+li:nth-child(2):after {
+	content: "";
+	display: block;
+	height: 130px;
+	width: 130px;
+	border: 1px solid orangered;
+	margin: 30px auto;
+	border-radius: 65px 65px 0px 0px;
+}
+
+li:nth-child(3):after {
+	content: "";
+	display: block;
+	width: 130px;
+	height: 65px;
+	border: 1px solid orangered;
+	margin: 50px auto;
+	border-radius: 65px 65px 0px 0px;
+}
+
+li:nth-child(4):after {
+	content: "";
+	display: block;
+	width: 130px;
+	height: 130px;
+	border: 1px solid orangered;
+	margin: 20px auto;
+	border-radius: 65px 0px 0px 0px;
+}
+
+li:nth-child(5):after {
+	content: "";
+	width: 130px;
+	height: 65px;
+	display: block;
+	border: 1px solid orangered;
+	border-radius: 50%;
+	margin: 50px auto;
+}
+
+li:nth-child(6):after {
+	content: "";
+	height: 130px;
+	width: 65px;
+	display: block;
+	border: 1px solid orangered;
+	border-radius: 50%;
+	margin: 20px auto;
+}
+
+li:nth-child(7):after {
+	content: "";
+	height: 130px;
+	width: 130px;
+	display: block;
+	border: 1px solid orangered;
+	margin: 20px auto;
+	border-radius: 135px 0px 0px 0px;
+}
+
+li:nth-child(8):after {
+	content: "";
+	width: 135px;
+	height: 30px;
+	display: block;
+	margin: 30px auto;
+	border: 1px solid orangered;
+	border-radius: 65px 65px 0px 0px/30px 30px 0px 0px;
+}
+</style>
+</head>
+<body>
+	<div class="box">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+</html>

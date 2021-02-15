@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>xxxxxxxxxxxxxxxx</title>
+<style type="text/css">
+/* CSS3中可以通过box-sizing来指定盒模型，即可指定为content-box、border-box，这样我们计算盒子大小的方式就发生了改变。 */
+/* 可以分成两种情况： */
+/* 1、box-sizing: border-box盒子大小为width */
+/* 2、box-sizing: content-box盒子大小为width + padding + border */
+/* 注：上面的标注的width指的是CSS属性里设置的width: length，content的值是会自动调整的。 */
+.box {
+	width: 316px;
+	height: 170px;
+	float: left;
+	margin-left: 20px;
+	box-sizing: border-box;
+/* 	box-sizing: content-box; */
+}
+
+.box img {
+	width: 100%;
+	height: 100%;
+}
+
+.box:hover {
+	border: 10px solid #00eeff;
+}
+</style>
+</head>
+<body>
+	<div class="box">
+		<img src="../images/1.png" alt="">
+	</div>
+
+	<div class="box">
+		<img src="../images/1.png" alt="">
+	</div>
+</body>
+</html>
