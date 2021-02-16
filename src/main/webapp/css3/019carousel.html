@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>xxxxxxxxxxxxxxxx</title>
+
+<style type="text/css">
+/* 1、普通版 3D 轮播图 */
+
+/* 实现思路： */
+
+/* 通过CSS3中transform-style: preserve-3d的概念，将视图设置成3D展示模式； */
+/* 四张图片，分别设置其绕着X轴旋转的角度，分别对应四个立体面； */
+/* 将旋转好的图片沿着Z轴平移盒子宽度的一半； */
+/* 定义一个全局变量num，用来记录按钮点击的次数，当当按动按钮的时候，让ul旋转num*90°； */
+* {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+.box {
+	width: 960px;
+	height: 540px;
+	/* border: 5px solid #999; */
+	margin: 150px auto;
+}
+
+.box ul {
+	width: 960px;
+	height: 540px;
+	position: relative;
+	transform-style: preserve-3d;
+	transition: transform .6s;
+}
+
+.box ul li {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+img {
+	width: 100%;
+	height: 100%;
+}
+
+.box ul li:nth-child(1) {
+	transform: rotateX(90deg) translateZ(270px);
+}
+
+.box ul li:nth-child(2) {
+	transform: rotateX(-90deg) translateZ(270px);
+}
+
+.box ul li:nth-child(3) {
+	transform: rotateX(180deg) translateZ(270px);
+}
+
+.box ul li:nth-child(4) {
+	transform: translateZ(270px);
+}
+
+.btn {
+	width: 1080px;
+	margin: 0 auto;
+	position: relative;
+	height: 0px;
+	top: -470px;
+}
+
+.btn button {
+	width: 40px;
+	height: 80px;
+	border-radius: 10px;
+	background: rgba(0, 0, 0, 0.2);
+	border: none;
+	outline: none;
+	font: 900 24px/80px '宋体';
+	color: #fff;
+}
+
+.btn button:frist-child {
+	float: left;
+}
+
+.btn button:last-child {
+	/* border-radius: 0 10px 10px 0; */
+	float: right;
+}
+img{
+	width:300px;
+	height: 300px;
+}
+
+
+</style>
+
+</head>
+<body>
+	<div class="box">
+		<ul>
+			<li><img src="../images/1.png" alt=""></li>
+			<li><img src="../images/2.png" alt=""></li>
+			<li><img src="../images/3.png" alt=""></li>
+			<li><img src="../images/4.png" alt=""></li>
+		</ul>
+	</div>
+	<div class="btn">
+		<button>&lt;</button>
+		<button>&gt;</button>
+	</div>
+
+	<script type="text/javascript">
+		var btn = document.querySelectorAll('button');
+		var box = document.querySelector('.box');
+		var _ul = box.querySelector('ul');
+		var num = 0;
+
+		// btn 获取到的是一个伪数组
+		btn[1].onclick = function() {
+			num++;
+			_ul.style.transform = 'rotateX(' + num * 90 + 'deg)'
+		}
+
+		btn[0].onclick = function() {
+			num--;
+			_ul.style.transform = 'rotateX(' + num * 90 + 'deg)';
+		}
+	</script>
+</body>
+</html>

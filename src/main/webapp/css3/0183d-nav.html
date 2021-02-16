@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>xxxxxxxxxxxxxxxx</title>
+
+<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+nav {
+	width: 600px;
+	height: 60px;
+	line-height: 60px;
+	margin: 200px auto;
+}
+
+li {
+	height: 60px;
+	width: 150px;
+	float: left;
+	position: relative;
+	transform-style: preserve-3d;
+	transition: all 0.5s ease-in;
+}
+
+span {
+	position: absolute;
+	width: 150px;
+	height: 60px;
+	display: block;
+	color: #fff;
+	text-align: center;
+}
+
+span:first-child {
+	background-color: #ff287a;
+	transform: rotateX(90deg) translateZ(30px);
+}
+
+span:last-child {
+	transform: translateZ(30px);
+	background-color: #00bdab;
+}
+
+li:hover {
+	transform: rotateX(-90deg);
+}
+</style>
+
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><span>Home</span> <span>主页</span></li>
+			<li><span>Menu</span> <span>菜单</span></li>
+			<li><span>Admin</span> <span>管理</span></li>
+			<li><span>About</span> <span>关于我们</span></li>
+		</ul>
+	</nav>
+</body>
+</html>

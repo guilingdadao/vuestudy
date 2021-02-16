@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>xxxxxxxxxxxxxxxx</title>
+<style type="text/css">
+/* 缩放scale(x, y)可以对元素进行水平和垂直方向的缩放，x、y的取值可为小数； */
+/*宽和高都放大1倍*/
+/* transform: scale(1.5); */
+.box {
+	width: 200px;
+	height: 200px;
+	background-color: pink;
+	margin: 50px auto;
+	transition: all 2s linear;
+}
+
+.box:hover {
+	/* 缩放 */
+	transform: scale(0.5);
+}
+</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

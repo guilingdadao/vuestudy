@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>xxxxxxxxxxxxxxxx</title>
+
+<style type="text/css">
+
+
+/* 3D 坐标轴 */
+/* 用X、Y、Z分别表示空间的3个维度，三条轴互相垂直。如下图： */
+/* image */
+
+/* 网格状的正方形，可以想象成是我们的电脑桌面2D平面。 */
+
+/* 在 3D 转换中，前面 2D 转换的属性在这都可以使用： */
+
+/* 位移 */
+/* transform:translate(100px,100px,100px); */
+/* 旋转 */
+/* transform:rotate(30deg,30deg,30deg); */
+/* 缩放 */
+/* transform:scale(2,0.5,0.5); */
+/* 倾斜 */
+/* transform:skew(30deg,30deg,30deg); */
+/* 在3D转换中，一定要加上一个透视属性，才能在电脑2D平面中显示出3D的效果，透视属性请看下章。 */
+</style>
+
+</head>
+<body>
+<p id="matrixDetail">目前属性值为：matrix(1,0,0,1,0,0)</p>
+
+<div class="matrix_image">
+
+   <div id="matrixLine" class="matrix_line"></div>
+   
+    <input type="text" id="matrixInput" class="matrix_input" autocomplete="off" placeholder="输入角度确定镜像对称轴" />
+    
+   <img id="matrixImage" src="../images/1.png" width="256" height="191" />
+   
+</div>
+
+</body>
+</html>

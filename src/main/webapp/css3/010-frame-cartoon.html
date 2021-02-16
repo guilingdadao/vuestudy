@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>xxxxxxxxxxxxxxxx</title>
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #F7F7F7;
+}
+<!--
+    baidu.png这个背景图由64张图片横向组成，我们通过动态改变图片的位置，实现动画效果
+-->
+.logo {
+	width: 270px;
+	height: 129px;
+	margin: 100px auto;
+	background-image: url("../images/5.png");
+	background-position: 0 0;
+}
+</style>
+</head>
+<body>
+	<div class="logo"></div>
+	<script>
+		var logo = document.querySelector('.logo');
+
+		var offset = -270;
+		var n = 0;
+		setInterval(function() {
+			n++;
+			logo.style.backgroundPosition = offset * n + 'px 0px';
+			if (n >= 64)
+				n = 0;
+		}, 100);
+	</script>
+</body>
+</html>

@@ -14,9 +14,6 @@
 CSS3的规范里“:”用来表示伪类，“::”用来表示伪元素，
 但是在高版本浏览器下:after、:before会被自动识别为::after、::before，这样做的目的是用来做兼容处理。 
 */
-
-
-
 * {
 	margin: 0;
 	padding: 0;
@@ -47,9 +44,9 @@ li:before {
 	display: block;
 	
 	width: 90px;
-	height: 1px;
+ 	height: 1px;/*高1px */ 
 	
-	background-color: #ccc;
+	background-color: #ff0000;
 	
 	position: absolute;
 	top: 97px;
@@ -61,7 +58,7 @@ li:after {
 	display: block;
 	width: 1px;
 	height: 90px;
-	background-color: #ccc;
+	background-color: #0000ff;
 	position: absolute;
 	left: 0px;
 	top: 4px;
@@ -79,12 +76,12 @@ li:nth-last-child(-n+3):before {
 <body>
 	<div class="box">
 		<ul>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
 		</ul>
 	</div>
 </body>

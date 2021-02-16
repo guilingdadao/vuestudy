@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>xxxxxxxxxxxxxxxx</title>
+<style type="text/css">
+/* 旋转rotate(deg)可以对元素进行旋转，正值为顺时针，负值为逆时针； */
+/* a、当元素旋转以后，坐标轴也跟着发生的转变 */
+/* b、调整顺序可以解决，把旋转放到最后 */
+/* 顺时针旋转 90度 */
+/* transform: rotate(90deg); */
+.box {
+	width: 200px;
+	height: 200px;
+	background-color: #0df3cd;
+	margin: 100px auto;
+	transition: all 2s linear;
+}
+
+.box:hover {
+	transform: rotate(-90deg);
+}
+</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

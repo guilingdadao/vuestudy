@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>xxxxxxxxxxxxxxxx</title>
+
+<style type="text/css">
+/* 什么是3D呈现呢？不要与前面的透视搞混，透视只能使一个物体呈现近大远小的状态，不能呈现出一个立体感的东西，比如我在页面上用六个面组成一个正方形，通过透视你可能只能改变他的远近距离，并不能让他看起来像个立体的盒子，所以这里需要用到另一个属性：transform-style。 */
+/* transform-style: preserve-3d | flat */
+/* flat：所有子元素在2D平面呈现 */
+/* preserve-3d：保留3D空间 */
+/* 必须设置在父元素身上并且父元素有转换（就是有变形）并且子元素也得有转换（变形）才能看得到效果。 */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.box {
+	width: 200px;
+	height: 200px;
+	margin: 150px auto;
+	position: relative;
+	/* 透视 */
+	/* perspective: 1000px; */
+	/* 转为立方体 */
+	transform-style: preserve-3d;
+	transform: rotateY(45deg) rotateX(30deg);
+}
+
+.box>div {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.left {
+	background-color: pink;
+	transform: rotateY(-90deg) translateZ(150px);
+}
+
+.right {
+	background-color: green;
+	transform: rotateY(90deg) translateZ(150px);
+}
+
+.top {
+	background-color: orange;
+	transform: rotateX(90deg) translateZ(150px);
+}
+
+.bottom {
+	background-color: blue;
+	transform: rotateX(-90deg) translateZ(150px);
+}
+
+.before {
+	background-color: red;
+	transform: translateZ(150px);
+}
+
+.back {
+	background-color: greenyellow;
+	transform: translateZ(-150px);
+}
+</style>
+
+</head>
+<body>
+	<div class="box">
+		<div class="left"></div>
+		<div class="right"></div>
+		<div class="top"></div>
+		<div class="bottom"></div>
+		<div class="before"></div>
+		<div class="back"></div>
+	</div>
+</body>
+</html>

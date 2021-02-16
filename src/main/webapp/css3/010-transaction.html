@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>xxxxxxxxxxxxxxxx</title>
+<style type="text/css">
+.box {
+	width: 250px;
+	height: 250px;
+	background-color: pink;
+	margin: 100px auto;
+/*          属性  执行时间 延时时间 过渡类型*/
+/* transition: all   2s       1s       linear; */
+	
+	transition: all 2s 1s linear;
+}
+
+.box:hover {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	background-color: rgb(25, 221, 247);
+}
+</style>
+</head>
+<body>
+	<div class="logo"></div>
+	<script>
+		var logo = document.querySelector('.logo');
+
+		var offset = -270;
+		var n = 0;
+		setInterval(function() {
+			n++;
+			logo.style.backgroundPosition = offset * n + 'px 0px';
+			if (n >= 64)
+				n = 0;
+		}, 100);
+	</script>
+</body>
+</html>

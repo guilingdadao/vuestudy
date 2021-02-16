@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>xxxxxxxxxxxxxxxx</title>
+<style type="text/css">
+/* 旋转原点： */
+
+/* 默认情况下，旋转是按照元素的中心点旋转的，但是我们可以手动设置元素旋转的中心点。 */
+/* transform-origin: 30px 40px; */
+.box {
+	width: 150px;
+	height: 150px;
+	background-color: cyan;
+	margin: 100px auto;
+	transition: all 1s linear;
+	/* 设置旋转原点位置 */
+	/* transform-origin: left top; */
+	transform-origin: 30px 40px;
+}
+
+.box:hover {
+	transform: rotate(90deg);
+}
+</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

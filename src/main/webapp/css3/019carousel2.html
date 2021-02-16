@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>xxxxxxxxxxxxxxxx</title>
+
+<style type="text/css">
+/* 实现思路： */
+
+/* 结构上将之前定义好的ul重复四次； */
+/* 设定延时，整个动画执行时间是0.8s，设定每一个ul延迟执行0.2s，即第一个延时0s，第二个延时0.2s，第三个延时0.4s，第四个延时0.6s； */
+/* 其余步骤同上，着重强调的是，相对于上面的案例，本案例给按钮加了限制，监听第一次所有的ul旋转结束之后，按钮才能再一次被点击。 */
+* {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+.box {
+	width: 960px;
+	height: 540px;
+	margin: 150px auto;
+	display: flex;
+}
+
+.box ul {
+	width: 960px;
+	height: 540px;
+	position: relative;
+	transform-style: preserve-3d;
+	transition: transform .8s;
+}
+
+.box ul li {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	overflow: hidden;
+}
+
+img {
+	width: 960px;
+	height: 540px;
+}
+
+/* 设定延时 */
+.box ul:nth-child(1) {
+	transition-delay: 0s;
+}
+
+.box ul:nth-child(2) {
+	transition-delay: .2s;
+}
+
+.box ul:nth-child(3) {
+	transition-delay: .4s;
+}
+
+.box ul:nth-child(4) {
+	transition-delay: .6s;
+}
+
+/* 拼凑图片 */
+.box ul:nth-child(2) img {
+	margin-left: -240px;
+}
+
+.box ul:nth-child(3) img {
+	margin-left: -480px;
+}
+
+.box ul:nth-child(4) img {
+	margin-left: -720px;
+}
+
+.box ul li:nth-child(1) {
+	transform: rotateX(90deg) translateZ(270px);
+}
+
+.box ul li:nth-child(2) {
+	transform: rotateX(-90deg) translateZ(270px);
+}
+
+.box ul li:nth-child(3) {
+	transform: rotateX(180deg) translateZ(270px);
+}
+
+.box ul li:nth-child(4) {
+	transform: translateZ(270px);
+}
+
+.btn {
+	width: 1080px;
+	margin: 0 auto;
+	position: relative;
+	height: 0px;
+	top: -470px;
+}
+
+.btn button {
+	width: 40px;
+	height: 80px;
+	border-radius: 10px;
+	background: rgba(0, 0, 0, 0.2);
+	border: none;
+	outline: none;
+	font: 900 24px/80px '宋体';
+	color: #fff;
+}
+
+.btn button:frist-child {
+	float: left;
+}
+
+.btn button:last-child {
+	/* border-radius: 0 10px 10px 0; */
+	float: right;
+}
+</style>
+
+</head>
+<body>
+
+	<div class="box">
+		<ul>
+			<li><img src="../images/1.png" alt=""></li>
+			<li><img src="../images/2.png" alt=""></li>
+			<li><img src="../images/3.png" alt=""></li>
+			<li><img src="../images/4.png" alt=""></li>
+		</ul>
+
+		<ul>
+			<li><img src="../images/1.png" alt=""></li>
+			<li><img src="../images/2.png" alt=""></li>
+			<li><img src="../images/3.png" alt=""></li>
+			<li><img src="../images/4.png" alt=""></li>
+		</ul>
+
+		<ul>
+			<li><img src="../images/1.png" alt=""></li>
+			<li><img src="../images/2.png" alt=""></li>
+			<li><img src="../images/3.png" alt=""></li>
+			<li><img src="../images/4.png" alt=""></li>
+		</ul>
+
+		<ul>
+			<li><img src="../images/1.png" alt=""></li>
+			<li><img src="../images/2.png" alt=""></li>
+			<li><img src="../images/3.png" alt=""></li>
+			<li><img src="../images/4.png" alt=""></li>
+		</ul>
+	</div>
+	<div class="btn">
+		<button>&lt;</button>
+		<button>&gt;</button>
+	</div>
+
+	<script type="text/javascript">
+		var btn = document.querySelectorAll('button');
+		var box = document.querySelector('.box');
+		var _ul = box.querySelectorAll('ul');
+		var num = 0;
+		var flag = true;
+		// btn 获取到的是一个伪数组    
+		btn[1].onclick = function() {
+			if (flag) {
+				flag = false;
+				num++;
+				for (var i = 0; i < _ul.length; i++) {
+					_ul[i].style.transform = 'rotateX(' + num * 90 + 'deg)';
+
+				}
+				// 监听最后一个transition事件结束的时候 将flag 置为 true 防止重复点击
+				_ul[_ul.length - 1].addEventListener('transitionend',
+						function() {
+							flag = true;
+						})
+			}
+		}
+		btn[0].onclick = function() {
+			if (flag) {
+				flag = false;
+				num--;
+				for (var i = 0; i < _ul.length; i++) {
+					_ul[i].style.transform = 'rotateX(' + num * 90 + 'deg)';
+
+				}
+				_ul[_ul.length - 1].addEventListener('transitionend',
+						function() {
+							flag = true;
+						})
+			}
+
+		}
+	</script>
+</body>
+</html>

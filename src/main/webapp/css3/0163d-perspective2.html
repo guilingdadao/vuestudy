@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>xxxxxxxxxxxxxxxx</title>
+
+<style type="text/css">
+.box {
+	width: 550px;
+	height: 150px;
+	margin: 100px auto;
+	padding: 6px;
+	border: 1px dashed #ccc;
+	/* 给变换的 li 的直接父元素 ul 添加透视属性 perspective */
+	perspective: 800px;
+}
+
+.box li {
+	float: left;
+	width: 150px;
+	height: 150px;
+	padding: 0;
+	list-style: none;
+	margin-right: 50px;
+	transition: all 0.5s linear;
+}
+
+.box li:first-child {
+	background: salmon;
+}
+
+.box li:nth-child(2) {
+	background: deepskyblue;
+}
+
+.box li:last-child {
+	background: khaki;
+	margin-right: 0px;
+}
+
+
+/* 第一个盒子向X轴的负方向移动100px */
+.box li:first-child:hover {
+	transform: translateX(-100px);
+}
+/* 第二个盒子向Y轴的正方向移动100px */
+.box li:nth-child(2):hover {
+	transform: translateY(100px);
+}
+/* 第三个盒子Z轴的负方向移动100px */
+.box li:last-child:hover {
+	transform: translateZ(-100px);
+}
+</style>
+
+</head>
+<body>
+	<ul class="box">
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+
+	<p>如图所示，在ul加上透视属性后，第三个盒子向着z轴的负方向移动了100px。
+		透视可以将一个2D平面，在转换的过程当中，呈现3D效果。（没有perspective，便“没有”Z轴）并非任何情况下都需要透视效果。</p>
+</body>
+</html>

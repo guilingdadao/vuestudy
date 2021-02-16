@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>xxxxxxxxxxxxxxxx</title>
+<style type="text/css">
+/* CSS3中，通过translate属性对元素进行位移。 */
+/* 移动translate(x, y)可以改变元素的位置，x、y可为负值； */
+
+/* a、移动位置相当于自身原来位置 */
+/* b、y轴正方向朝下 */
+/* c、除了可以像素值，也可以是百分比，相对于自身的宽度或高度 */
+/* transform: translate(100px, 30px); */
+
+.line {
+	height: 200px;
+	background-color: pink;
+}
+
+.box {
+	width: 100px;
+	height: 100px;
+	background-color: rgb(30, 230, 245);
+	transition: all 1s linear;
+}
+
+.line:hover .box {
+	/* 位移 */
+	transform: translate(100px, 30px);
+}
+</style>
+</head>
+<body>
+	<div class="line">
+		<div class="box"></div>
+	</div>
+</body>
+</html>
