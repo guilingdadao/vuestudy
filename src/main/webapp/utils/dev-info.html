@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+<script src="./osversion.js"></script>
+<script src="./browser.js"></script>
+<script>
+	var os = getOsData();
+	alert(os.name + " , " + os.group);
+
+	if (browser.userAgent.trident) {
+		alert('IE浏览器');
+	}
+</script>
+
+</head>
+<body>
+	<h2>hello</h2>
+</body>
+</html>
