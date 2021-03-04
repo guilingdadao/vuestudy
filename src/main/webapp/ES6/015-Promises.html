@@ -15,9 +15,11 @@
 
 function fakeAjax(url) {
 	
+	//alert(url);//!undifined  == true
+	
   return new Promise(function (resolve, reject) {
     // setTimeouts are for effect, typically we would handle XHR
-    if (!url) {
+    if (!url) {// 
       return setTimeout(reject, 1000);
     }
     
@@ -25,11 +27,18 @@ function fakeAjax(url) {
   });
 }
 
-// no url, promise rejected
+/***
+ *  no url, promise rejected
+ *  由于没有url参数,将调用reject函数
+ */
 fakeAjax().then(function () {
+	
   console.log('success');
+  
 },function () {
+	
   console.log('fail');
+  
 });
 
 //Promises Promises提供了一种处理异步操作的结果和错误的机制。你可以用回调来完成同样的事情，但是promises通过方法链接和简洁的错误处理提供了更高的可读性。
@@ -42,6 +51,7 @@ const isGreater = (a, b) => {
 	    }
 	})
 }
+
 isGreater(1, 2)
     .then(result => {
     console.log('greater')

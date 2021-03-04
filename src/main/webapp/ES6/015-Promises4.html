@@ -9,9 +9,11 @@
 
 <script type="text/javascript">
 
-//
+// 创建一个Promise对象
 var p =new Promise(function(resolve,reject){
+	
 	let isOk=false;
+	
 	if(isOk){
 		resolve();
 	}else{
@@ -19,7 +21,7 @@ var p =new Promise(function(resolve,reject){
 	}
 });
 
-// then中的函数是回调函数
+// then中的函数是回调函数,then(resolve,reject)
 p.then(function(){
 	console.log('成功了');
 },function(){

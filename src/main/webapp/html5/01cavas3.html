@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>cavas测试</title>
+<script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+
+		<canvas @mousedown="mouseDown($event)" width="300" height="150"
+			id="cav" style="border: 1px dashed"> </canvas>
+	</div>
+	<script>
+		
+	</script>
+
+	<script type="text/javascript">
+		var app = new Vue({
+			el : '#app',
+			data : {
+				message : '测试',
+			},
+			created(){
+				
+			},
+			methods:{
+				mouseDown(e){
+					 var cav = document.getElementById("cav") .getContext("2d");
+				        cav.fillStyle = "red";
+				        
+				        cav.rect(e.clientX-10,e.clientY-10,2,2)
+				        
+				        cav.fill()				
+				}
+			}
+		});
+	</script>
+
+</body>
+</html>

@@ -17,17 +17,23 @@
 //如果只有一个异步动作这也许没有问题，但是如果有多个异步动作，回调变得无法管理导致著名的回调陷阱。
 doSomething(function(responseOne )  {
 	
-     doSomethingElse(responseOne ,  function(responseTwo , err )  { 
+     doSomethingElse(responseOne ,  function(responseTwo , err )  {
          
-         if  (err )  {  handleError(err );  } 
+         if  (err )  {
+        	 handleError(err );
+         } 
          
-         doMoreStuff(responseTwo ,  function(responseThree , err )  { 
+         doMoreStuff(responseTwo ,  function(responseThree , err )  {
              
-             if  (err )  {  handleAnotherError(err );  } 
+             if  (err )  {  
+            	 handleAnotherError(err );  
+             } 
              
              doFinalThing(responseThree ,  function(err )  { 
                  
-                 if  (err )  {  handleAnotherError(err );  } 
+                 if  (err )  {  
+                	 handleAnotherError(err );  
+                 } 
                  
                  // Complete 
              });  // end doFinalThing 

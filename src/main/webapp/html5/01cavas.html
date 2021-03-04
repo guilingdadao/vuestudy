@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>cavas测试</title>
+<script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<div id="btn">
+			<input type="button" @click="stoke" value="stoke"> 
+			<input type="button" @click="fill" value="fill">
+			
+			<select v-model="color">
+				<option v-for="c in colors" :value="c">{{c}}</option>
+			</select>
+		</div>
+		
+		<canvas width="300" height="150" id="cav" style="border: 1px dashed"> </canvas>
+	</div>
+	<script>
+		
+	</script>
+
+	<script type="text/javascript">
+		var app = new Vue({
+			el : '#app',
+			data : {
+				message : 'hello，这是第一个vue演示程序',
+				colors:[
+					'red',
+					'black',
+					'green',
+					'blue'
+				],
+				color:'red'
+			},
+			created(){
+				
+			},
+			methods:{
+				stoke:function(){
+					var cav = document.getElementById("cav").getContext("2d");
+					cav.strokeStyle = this.color;
+					cav.rect(10, 10, 100, 100)
+					cav.stroke()//轮廓图形
+				},
+				fill:function(){
+					var cav = document.getElementById("cav").getContext("2d");
+					cav.fillStyle =  this.color;
+					cav.rect(10, 10, 100, 100)
+					cav.fill()//填充图形
+				}
+				
+			}
+		});
+	</script>
+
+</body>
+</html>

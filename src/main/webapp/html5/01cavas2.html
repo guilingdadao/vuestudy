@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>cavas测试</title>
+<script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<div id="btn">
+			<input type="button" @click="draw" value="draw">
+			<input type="button" @click="draw2" value="draw2">
+			<input type="button" @click="draw3" value="draw3">
+		</div>
+
+		<canvas width="300" height="150" id="cav" style="border: 1px dashed"> </canvas>
+	</div>
+	<script>
+		
+	</script>
+
+	<script type="text/javascript">
+		var app = new Vue({
+			el : '#app',
+			data : {
+				message : '测试',
+			},
+			created(){
+				
+			},
+			methods:{
+				draw(){
+					var cav = document.getElementById("cav") .getContext("2d");
+					
+				 	cav.strokeStyle = "#804000";
+				 	
+				 	for (var i = 0; i < 10; i++) {
+				 		
+				 		for (var j = 0; j < 10; j++) {
+				 			
+				 			cav.rect(i*10,j*10,10,10)
+				 			
+				 			cav.stroke()
+				 			
+				 			//console.log(i+j)
+				 		}
+				 	}
+				},//draw
+				draw2(){
+					var cav = document.getElementById("cav") .getContext("2d");
+					
+				 	cav.strokeStyle = "#804000";
+				 	
+				 	for (var i = 0; i < 10; i++) {
+				 		
+				 		for (var j = 0; j < 10; j++) {
+				 			
+				 			cav.strokeRect(i*10,j*10,10,10)//strokeRect()方法用来绘制没有填充色只有边框的矩形
+				 		}
+				 	}
+					//绘制矩形
+					//fillRect()方法用来绘制没有边框只有填充色的矩形
+				 //strokeRect()方法用来绘制没有填充色只有边框的矩形
+					
+				},
+				draw3(){
+					var cav = document.getElementById("cav") .getContext("2d");
+					
+				 	cav.strokeStyle = "#804000";
+				 	
+				 	for (var i = 0; i < 10; i++) {
+				 		
+				 		for (var j = 0; j < 10; j++) {
+				 			
+				 			cav.fillRect(i*10,j*10,9,9)//fillRect()方法用来绘制没有边框只有填充色的矩形
+				 		}
+				 	}
+				}
+			}
+		});
+	</script>
+
+</body>
+</html>

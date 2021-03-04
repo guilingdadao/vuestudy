@@ -22,7 +22,8 @@ console.log(typeof sym); // symbol
 var o = {
        val: 10,
       [ Symbol("random") ]: "I'm a symbol",
-  };    
+  };   
+
 console.log(Object.getOwnPropertyNames(o)); // val
 
 //为了返回一个对象的symbol属性，必须使用Object.getOwnPropertySymbols(o)

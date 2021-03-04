@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+	<div id="app"></div>
+	<script type="text/javascript">
+		let msg = "中国";
+		let msg1 = encodeURI(msg);
+		let msg2 = encodeURI(msg1);
+
+		console.log(msg);
+		
+		console.log(msg1);//encodeURI.html:18 %E4%B8%AD%E5%9B%BD
+		
+		// 仅将%编码变为:%25
+		console.log(msg2);//encodeURI.html:19 %25E4%25B8%25AD%25E5%259B%25BD
+		
+		let gbk = encodeURIComponent(msg,'GBK',"dsdfsd");
+		console.log(gbk)
+		
+		
+	</script>
+</body>
+</html>
