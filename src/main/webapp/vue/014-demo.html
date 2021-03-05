@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>表单元素测试</title>
+<script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+	<div id="app">
+		<word-view title="测试">
+			<word-line slot="rows_slot" v-for=" (w,idx) in wordList" rowsNum=10 :key="idx" :w="w" :idx="idx"></word-line>
+		</word-view>
+	</div>
+	<script>
+	Vue.component("word-view",{
+		props:['title'],
+		template:`
+			<table>\
+				<slot name="rows_slot"></slot>\
+			</table>
+		`
+	});
+	
+	Vue.component("word-line",{
+		props:['idx','w','rowsNum'],
+		template:`
+			<tr>\
+				<td><a id="{{w.codepoint}}">{{idx}}-{{w.word}}</a></td>\
+			</tr>
+			
+		`
+	});
+	var app = new Vue({
+		el:'#app',
+		data:{
+			wordList:
+				[{"codepoint":"19968","word":"一"},{"codepoint":"19969","word":"丁"},{"codepoint":"19970","word":"丂"},{"codepoint":"19971","word":"七"},{"codepoint":"19972","word":"丄"},{"codepoint":"19973","word":"丅"},{"codepoint":"19974","word":"丆"},{"codepoint":"19975","word":"万"},{"codepoint":"19976","word":"丈"},{"codepoint":"19977","word":"三"},{"codepoint":"19978","word":"上"},{"codepoint":"19979","word":"下"},{"codepoint":"19980","word":"丌"},{"codepoint":"19981","word":"不"},{"codepoint":"19982","word":"与"},{"codepoint":"19983","word":"丏"},{"codepoint":"19984","word":"丐"},{"codepoint":"19985","word":"丑"},{"codepoint":"19986","word":"丒"},{"codepoint":"19987","word":"专"},{"codepoint":"19988","word":"且"},{"codepoint":"19989","word":"丕"},{"codepoint":"19990","word":"世"},{"codepoint":"19991","word":"丗"},{"codepoint":"19992","word":"丘"},{"codepoint":"19993","word":"丙"},{"codepoint":"19994","word":"业"},{"codepoint":"19995","word":"丛"},{"codepoint":"19996","word":"东"},{"codepoint":"19997","word":"丝"},{"codepoint":"19998","word":"丞"},{"codepoint":"19999","word":"丟"},{"codepoint":"20000","word":"丠"},{"codepoint":"20001","word":"両"},{"codepoint":"20002","word":"丢"},{"codepoint":"20003","word":"丣"},{"codepoint":"20004","word":"两"},{"codepoint":"20005","word":"严"},{"codepoint":"20006","word":"並"},{"codepoint":"20007","word":"丧"},{"codepoint":"20008","word":"丨"},{"codepoint":"20009","word":"丩"},{"codepoint":"20010","word":"个"},{"codepoint":"20011","word":"丫"},{"codepoint":"20012","word":"丬"},{"codepoint":"20013","word":"中"},{"codepoint":"20014","word":"丮"},{"codepoint":"20015","word":"丯"},{"codepoint":"20016","word":"丰"},{"codepoint":"20017","word":"丱"},{"codepoint":"20018","word":"串"},{"codepoint":"20019","word":"丳"},{"codepoint":"20020","word":"临"},{"codepoint":"20021","word":"丵"},{"codepoint":"20022","word":"丶"},{"codepoint":"20023","word":"丷"},{"codepoint":"20024","word":"丸"},{"codepoint":"20025","word":"丹"},{"codepoint":"20026","word":"为"},{"codepoint":"20027","word":"主"},{"codepoint":"20028","word":"丼"},{"codepoint":"20029","word":"丽"},{"codepoint":"20030","word":"举"},{"codepoint":"20031","word":"丿"},{"codepoint":"20032","word":"乀"},{"codepoint":"20033","word":"乁"},{"codepoint":"20034","word":"乂"},{"codepoint":"20035","word":"乃"},{"codepoint":"20036","word":"乄"},{"codepoint":"20037","word":"久"},{"codepoint":"20038","word":"乆"},{"codepoint":"20039","word":"乇"},{"codepoint":"20040","word":"么"},{"codepoint":"20041","word":"义"},{"codepoint":"20042","word":"乊"},{"codepoint":"20043","word":"之"},{"codepoint":"20044","word":"乌"},{"codepoint":"20045","word":"乍"},{"codepoint":"20046","word":"乎"},{"codepoint":"20047","word":"乏"},{"codepoint":"20048","word":"乐"},{"codepoint":"20049","word":"乑"},{"codepoint":"20050","word":"乒"},{"codepoint":"20051","word":"乓"},{"codepoint":"20052","word":"乔"},{"codepoint":"20053","word":"乕"},{"codepoint":"20054","word":"乖"},{"codepoint":"20055","word":"乗"},{"codepoint":"20056","word":"乘"},{"codepoint":"20057","word":"乙"},{"codepoint":"20058","word":"乚"},{"codepoint":"20059","word":"乛"},{"codepoint":"20060","word":"乜"},{"codepoint":"20061","word":"九"},{"codepoint":"20062","word":"乞"},{"codepoint":"20063","word":"也"}]
+		}
+	});
+</script>
+</body>
+</html>
