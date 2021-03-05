@@ -1,24 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=GB18030">
-<title>搭建vue环境，测试一下vue</title>
+<meta charset="UTF-8">
+<title>鎼缓vue鐜锛屾祴璇曚竴涓媣ue</title>
 <script type="text/javascript" src="../js/vue.js"></script>
 
 </head>
 <body>
-<h2>使用v-on进行练习</h2>
+<h2>浣跨敤v-on杩涜缁冧範</h2>
 
 <div id="app">
 	<p>{{message}}</p>
-	<button v-on:click="reverseMessage">进行字符串进行翻转</button>
+	<button v-on:click="reverseMessage">杩涜瀛楃涓茶繘琛岀炕杞�</button>
 </div>
 
 <script type="text/javascript">
 var app = new Vue({
 	el:'#app',
 	data:{
-		message:'Hello My baby !我是一名三好学生！！！'
+		message:'Hello My baby !鎴戞槸涓�鍚嶄笁濂藉鐢燂紒锛侊紒'
 	},
 	methods:{
 		reverseMessage:function(){

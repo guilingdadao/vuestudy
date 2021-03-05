@@ -1,18 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=GB18030">
-<title>´î½¨vue»·¾³£¬²âÊÔÒ»ÏÂvue</title>
+<meta charset="UTF-8">
+<title>æ­å»ºvueç¯å¢ƒï¼Œæµ‹è¯•ä¸€ä¸‹vue</title>
 <script type="text/javascript" src="../js/vue.js"></script>
 
 </head>
 <body>
 <div id="app">
-	<input type="button" value="·­×ªÏûÏ¢" @click="reverseMsg"/>
-	<input type="button" value="É¾³ıµÚÒ»´Î×Ö·û" @click="delFirst"/>
-	<input type="button" value="É¾³ıµÚÒ»´Î×Ö·û2" @click="delFirst2"/>
+	<input type="button" value="ç¿»è½¬æ¶ˆæ¯" @click="reverseMsg"/>
+	<input type="button" value="åˆ é™¤ç¬¬ä¸€æ¬¡å­—ç¬¦" @click="delFirst"/>
+	<input type="button" value="åˆ é™¤ç¬¬ä¸€æ¬¡å­—ç¬¦2" @click="delFirst2"/>
 	
-	<p>Õ¹Ê¾ÏûÏ¢£º<input type="text" v-model="msg"/></span></p>
+	<p>å±•ç¤ºæ¶ˆæ¯ï¼š<input type="text" v-model="msg"/></span></p>
 </div>
 
 <script type="text/javascript">
@@ -20,7 +20,7 @@
 var vm = new Vue({
 	el:"#app",
 	data:{
-		msg:'ÎÒÊÇÖĞ¹úÈË£¬ÎÒ°®ÎÒµÄ×æ¹ú'
+		msg:'æˆ‘æ˜¯ä¸­å›½äººï¼Œæˆ‘çˆ±æˆ‘çš„ç¥–å›½'
 	},
 	methods:{
 		reverseMsg:function(){

@@ -1,14 +1,14 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=GB18030">
-<title>搭建vue环境，测试一下vue</title>
+<meta charset="UTF-8">
+<title>鎼缓vue鐜锛屾祴璇曚竴涓媣ue</title>
 <script type="text/javascript" src="../js/vue.js"></script>
 </head>
 <body>
-<h2>使用component进行练习</h2>
+<h2>浣跨敤component杩涜缁冧範</h2>
 
-<div id="app-7">
+<div id="app">
   <ol>
     <todo-item
       v-for="gl in groceryList"
@@ -25,12 +25,12 @@ Vue.component('todo-item', {
 });
 
 var app7 = new Vue({
-	  el: '#app-7',
+	  el: '#app',
 	  data: {
 	    groceryList: [
-	      { id: 0, text: '蔬菜' },
-	      { id: 1, text: '奶酪' },
-	      { id: 2, text: '随便其它什么人吃的东西' }
+	      { id: 0, text: '钄彍' },
+	      { id: 1, text: '濂堕叒' },
+	      { id: 2, text: '闅忎究鍏跺畠浠�涔堜汉鍚冪殑涓滆タ' }
 	    ]
 	  }
 	})

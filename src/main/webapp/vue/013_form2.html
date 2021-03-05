@@ -9,26 +9,26 @@
 <body>
 
 <div id="app">
-	<!-- 当选中时，`picked` 为字符串 "a" -->
-<input type="radio" v-model="picked" value="a">
+		<!-- 当选中时，`picked` 为字符串 "a" -->
+	<input type="radio" v-model="picked" value="a">
 
-<!-- `toggle` 为 true 或 false -->
-<input type="checkbox" v-model="toggle">
+	<!-- `toggle` 为 true 或 false -->
+	<input type="checkbox" v-model="toggle">
 
-<!-- 当选中第一个选项时，`selected` 为字符串 "abc" -->
-<select v-model="selected">
-  <option value="abc">ABC</option>
-  <option value="dd">DD</option>
-  <option value="ee">EE</option>
-</select>
+	<!-- 当选中第一个选项时，`selected` 为字符串 "abc" -->
+	<select v-model="selected">
+	  <option value="abc">ABC</option>
+	  <option value="dd">DD</option>
+	  <option value="ee">EE</option>
+	</select>
 
-<h2>Yes or No?</h2>
+	<h2>Yes or No?</h2>
 
-<input
-  type="checkbox"
-  v-model="toggle2"
-  true-value="yes"
-  false-value="no"/>
+	<input
+	  type="checkbox"
+	  v-model="toggle2"
+	  true-value="yes"
+	  false-value="no"/>
   
   <p>选中的结果:{{toggle2}}</p>
   

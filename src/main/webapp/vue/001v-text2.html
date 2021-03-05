@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>hello vue</title>
+<script type="text/javascript" src="../js/vue.js"></script>
+
+
+</head>
+<body>
+	<div id="app">
+		<h2>{{ message }}</h2>
+
+		<ul>
+			<li>{{ colors[0] }}</li>
+			<li>{{ colors[1] }}</li>
+			<li>{{ colors[2] }}</li>
+		</ul>
+	</div>
+
+	<script type="text/javascript">
+		var vm = new Vue({
+			el : "#app",
+			data : {
+				message : "hello vue!",
+				colors : [ 'red', 'green', 'blue' ]
+			}
+
+		});
+	</script>
+</body>
+</html>

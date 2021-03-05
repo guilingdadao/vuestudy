@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>练习slot插槽</title>
+<style type="text/css">
+
+</style>
+<script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+<h1>练习使用插槽-第3次练习</h1>
+	<div id="app">
+		<todo>
+			<!-- 可以在html元素上,使用插槽 -->
+			<h2 slot="titleSlot">{{title}}</h2>
+			
+			
+			<todo-item slot="itemSlot" v-for="(i,idx) in bookList" :item="i" :key="idx" :idx="idx"></todo-item>
+			
+			<!-- 可以在html元素上,使用插槽 -->
+			<span slot="totalSlot">
+				{{bookList.length}}条
+			</span>
+		</todo>
+	</div>
+
+	<script type="text/javascript">
+	
+	Vue.component("todo",{
+		template:`
+		<div>\
+			<slot name="titleSlot"></slot>\
+			<ul>\
+				<slot name="itemSlot"></slot>\
+			</ul>\
+			<div>\
+				<p>统计信息：<slot name="totalSlot"></slot></p>
+			</div>
+		</div>
+		`
+	});
+	
+	Vue.component('todo-title',{
+		props:['title'],
+		template:`
+			<h2>{{title}}</h2>\
+		`
+	});
+	Vue.component('todo-item',{
+		props:['idx','item'],
+		template:`
+			<li>第{{idx + 1}}本：{{item}}</li>\
+		`
+	});
+	
+	var app = new Vue({
+		el:'#app',
+		data:{
+			title:'编程书籍有哪些？',
+			bookList:['JAVA大神入门','C你需要学习一点','数据结构神奇之旅']
+		}
+	});
+	
+	
+	</script>
+</body>
+</html>

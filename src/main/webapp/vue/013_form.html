@@ -10,32 +10,32 @@
 
 <div id="app">
 
-<h4>单文本框</h4>
-<input v-model="message" placeholder="edit me!" />
-<p>你输入了:{{message}}</p>
+	<h4>单文本框</h4>
+	<input v-model="message" placeholder="edit me!" />
+	<p>你输入了:{{message}}</p>
 
-<h4>多文本框</h4>
-<span>Multiline message is:</span>
-<p style="white-space: pre-line;">{{ multiMsg }}</p>
-<br/>
-<textarea v-model="multiMsg" placeholder="add multiple lines"></textarea>
+	<h4>多文本框</h4>
+	<span>Multiline message is:</span>
+	<p style="white-space: pre-line;">{{ multiMsg }}</p>
+	<br/>
+	<textarea v-model="multiMsg" placeholder="add multiple lines"></textarea>
 
-<h4>单个复选框，绑定到布尔值</h4>
-<input type="checkbox" id="checkbox" v-model="checked">
-<label for="checkbox">{{ checked }}</label>
+	<h4>单个复选框，绑定到布尔值</h4>
+	<input type="checkbox" id="checkbox" v-model="checked">
+	<label for="checkbox">{{ checked }}</label>
 
-<h4>多个复选框，绑定到同一个数组</h4>
-<input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-<label for="jack">Jack</label>
+	<h4>多个复选框，绑定到同一个数组</h4>
+	<input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+	<label for="jack">Jack</label>
+	
+	<input type="checkbox" id="john" value="John" v-model="checkedNames">
+	<label for="john">John</label>
+	
+	<input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+	<label for="mike">Mike</label>
+	<br>
 
-<input type="checkbox" id="john" value="John" v-model="checkedNames">
-<label for="john">John</label>
-
-<input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
-<label for="mike">Mike</label>
-<br>
-
-<span>Checked names: {{ checkedNames }}</span>
+	<span>Checked names: {{ checkedNames }}</span>
 
 
 

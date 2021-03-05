@@ -1,48 +1,50 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=GB18030">
-<title>´î½¨vue»·¾³£¬²âÊÔÒ»ÏÂvue</title>
+<meta charset="UTF-8">
+<title>æ­å»ºvueç¯å¢ƒï¼Œæµ‹è¯•ä¸€ä¸‹vue</title>
 <script type="text/javascript" src="../js/vue.js"></script>
 </head>
 <body>
-<h2>Ê¹ÓÃcomponent½øĞĞÁ·Ï°</h2>
+	<h2>ä½¿ç”¨componentè¿›è¡Œç»ƒä¹ </h2>
 
-<div id="app-7">
-  <ol>
-    <!--
-      ÏÖÔÚÎÒÃÇÎªÃ¿¸ö todo-item Ìá¹© todo ¶ÔÏó£¬todo ¶ÔÏóÊÇ±äÁ¿£¬¼´ÆäÄÚÈİ¿ÉÒÔÊÇ¶¯Ì¬µÄ¡£
-    ÎÒÃÇÒ²ĞèÒªÎªÃ¿¸ö×é¼şÌá¹©Ò»¸ö¡°key¡±£¬ÉÔºóÔÙ ×÷ÏêÏ¸½âÊÍ¡£
+	<div id="app">
+		<ol>
+			<!--
+      ç°åœ¨æˆ‘ä»¬ä¸ºæ¯ä¸ª todo-item æä¾› todo å¯¹è±¡ï¼Œtodo å¯¹è±¡æ˜¯å˜é‡ï¼Œå³å…¶å†…å®¹å¯ä»¥æ˜¯åŠ¨æ€çš„ã€‚
+    æˆ‘ä»¬ä¹Ÿéœ€è¦ä¸ºæ¯ä¸ªç»„ä»¶æä¾›ä¸€ä¸ªâ€œkeyâ€ï¼Œç¨åå† ä½œè¯¦ç»†è§£é‡Šã€‚
     -->
-    <todo-item
-      v-for="item in groceryList"
-      v-bind:todo="item"
-      v-bind:key="item.id">
-    </todo-item>
-  </ol>
-</div>
+			<todo-item v-for="item in groceryList" v-bind:todo="item"
+				v-bind:key="item.id"> </todo-item>
+		</ol>
+	</div>
 
-<script type="text/javascript">
-//¶¨ÒåÃûÎª todo-item µÄĞÂ×é¼ş
-Vue.component('todo-item', {
-  // todo-item ×é¼şÏÖÔÚ½ÓÊÜÒ»¸ö
-  // "prop"£¬ÀàËÆÓÚÒ»¸ö×Ô¶¨ÒåÌØĞÔ¡£
-  // Õâ¸ö prop ÃûÎª todo¡£
-  props: ['todo'],
-  template: '<li>{{ todo.text }}</li>'
-});
+	<script type="text/javascript">
+		//å®šä¹‰åä¸º todo-item çš„æ–°ç»„ä»¶
+		Vue.component('todo-item', {
+			// todo-item ç»„ä»¶ç°åœ¨æ¥å—ä¸€ä¸ª
+			// "prop"ï¼Œç±»ä¼¼äºä¸€ä¸ªè‡ªå®šä¹‰ç‰¹æ€§ã€‚
+			// è¿™ä¸ª prop åä¸º todoã€‚
+			props : [ 'todo' ],
+			template : '<li>{{ todo.text }}</li>'
+		});
 
-var app7 = new Vue({
-	  el: '#app-7',
-	  data: {
-	    groceryList: [
-	      { id: 0, text: 'Êß²Ë' },
-	      { id: 1, text: 'ÄÌÀÒ' },
-	      { id: 2, text: 'Ëæ±ãÆäËüÊ²Ã´ÈË³ÔµÄ¶«Î÷' }
-	    ]
-	  }
-	})
-</script>
+		var app7 = new Vue({
+			el : '#app',
+			data : {
+				groceryList : [ {
+					id : 0,
+					text : 'è”¬èœ'
+				}, {
+					id : 1,
+					text : 'å¥¶é…ª'
+				}, {
+					id : 2,
+					text : 'éšä¾¿å…¶å®ƒä»€ä¹ˆäººåƒçš„ä¸œè¥¿'
+				} ]
+			}
+		})
+	</script>
 
 
 </body>
