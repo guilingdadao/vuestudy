@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>表单元素测试</title>
+<script src="../js/vue.js"></script>
+<style type="text/css">
+p a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 该工程的主要问题是,数据绑定不生效 -->
+	<div id="app">
+		<div>
+			<h3 v-text="title"></h3>
+			<button @click="getNextWord">获取下一个汉字</button>
+		</div>
+
+		<table id="wordTab" border="1" cellspacing="0" cellpadding="0"
+			width="300" height="300">
+
+			<tr v-for="(i, idxRow) in rowNum" :key="i">
+				<td :id="idxRow + '_' + idxCol" v-for="(j, idxCol) in colNum"
+					:key="j">
+					<a class="word" href="###"
+						v-show="wordList[idxRow][idxCol]"
+						@click="clickWord(idxRow, idxCol, $event)">{{wordList[idxRow][idxCol] }}</a>
+				</td>
+			</tr>
+		</table>
+
+		<table>
+			<tr v-for="item in wordList">
+				<td v-for="w in item">{{ w }}</td>
+			</tr>
+		</table>
+
+	</div>
+	<script>
+		var app = new Vue({
+			el : '#app',
+			data : {
+				 rowNum: 3,
+			      colNum: 3,
+			      title: '点击你认识的汉字',
+			      wordList: [],
+			      knownList: [],
+			      unknownList: [],
+			},
+			created:function(){
+				 //构建一个二维数组
+			    for (let i = 0; i < this.rowNum; i++) {
+			      //创建行
+			      this.$set(this.wordList,i,[])
+			      
+			      
+			      //构建第i行 所有列
+			      for (let j = 0; j < this.colNum; j++) {
+			        this.wordList[i][j] = 'ss'
+			        this.$set(this.wordList[i],j,'ss') 
+			      }
+			    }
+			    
+			   //Vue.set(obj,key,value)
+			  // this.$set(obj,key,value)
+			    //this.$forceUpdate()
+			    	
+			},
+			methods : {
+				clickWord(row, col, e) {
+				      if ('' != this.wordList[row][col]) {
+				        console.log(this.wordList[row][col])
+				        //将选中的词语放入数组中
+				        this.knownList.push(this.wordList[row][col])
+				      }
+				    },
+				    getNextWord() {
+				    	this.$set(this.wordList[0],0,'我') 
+				    	this.$set(this.wordList[0],1,'喜') 
+				    	this.$set(this.wordList[0],2,'欢') 
+				    },
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>表单元素测试</title>
+<script src="../js/vue.js"></script>
+<style type="text/css">
+p a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 该工程的主要问题是,数据绑定不生效 -->
+	<div id="app">
+		<div>
+			<h3 v-text="title"></h3>
+			<button @click="getNextWord">获取下一个汉字</button>
+		</div>
+
+		<table id="wordTab" border="1" cellspacing="0" cellpadding="0"
+			width="300" height="300">
+
+			<tr v-for="(i, idxRow) in rowNum" :key="i">
+				<td :id="idxRow + '_' + idxCol" v-for="(j, idxCol) in colNum"
+					:key="j">
+					<a class="word" href="###"
+						v-show="wordList[idxRow][idxCol]"
+						@click="clickWord(idxRow, idxCol, $event)">{{wordList[idxRow][idxCol] }}</a>
+				</td>
+			</tr>
+		</table>
+
+		<table>
+			<tr v-for="item in wordList">
+				<td v-for="w in item">{{ w }}</td>
+			</tr>
+		</table>
+
+	</div>
+	<script>
+		var app = new Vue({
+			el : '#app',
+			data : {
+				 rowNum: 3,
+			      colNum: 3,
+			      title: '点击你认识的汉字',
+			      wordList: [],
+			      knownList: [],
+			      unknownList: [],
+			},
+			created:function(){
+				 //构建一个二维数组
+			    this.wordList = []
+				 
+			    for (let i = 0; i < this.rowNum; i++) {
+			      //创建行
+			      this.wordList[i] = []
+			      //构建第i行 所有列
+			      for (let j = 0; j < this.colNum; j++) {
+			        this.wordList[i][j] = 'ss'
+			      }
+			    }
+				 
+			    
+				 
+			    //城乡居民养老保险新增申报功能项目
+			    this.wordList[0][0] = ''
+			    this.wordList[0][1] = null
+			    this.wordList[0][2] = '城'
+
+			    this.wordList[1][0] = '乡'
+			    this.wordList[1][1] = '居'
+			    this.wordList[1][2] = '民'
+
+			    this.wordList[2][0] = '养'
+			    this.wordList[2][1] = '老'
+			    this.wordList[2][2] = '保'
+			},
+			methods : {
+				clickWord(row, col, e) {
+				      if ('' != this.wordList[row][col]) {
+				        console.log(this.wordList[row][col])
+				        //将选中的词语放入数组中
+				        this.knownList.push(this.wordList[row][col])
+				      }
+				    },
+				    getNextWord() {
+				    	this.wordList[0][0]='我'
+				    	this.wordList[0][1]='喜'
+				    	this.wordList[0][2]='欢'
+				    	
+				    },
+			}
+		});
+	</script>
+</body>
+</html>
