@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+</head>
+
+<body>
+
+	<script type="text/javascript">
+//假设这是我们要请求的数据
+function getSomething(n) {
+    return new Promise(resolve => {
+        // 模拟1s后返回数据
+        setTimeout(() => resolve(222), 1000);
+    });
+}
+
+function requestSomething() {
+	
+    console.log(111);
+    
+    getSomething().then(res => console.log(res));
+    
+    console.log(333);
+    
+}
+
+requestSomething() //这个时候会输出 111，333，222
+
+
+// 如果想要等数据返回后再执行后面的代码，那么就要使用 async/await
+async function requestSomething() {
+	
+    console.log(111);
+    
+    // 这时something会等到异步请求的结果回来后才进行赋值，同时不会执行之后的代码
+    const something = await getSomething();
+    
+	console.log(something)
+	
+    console.log(333);
+}
+
+requestSomething() //这个时候会输出 111，222，333
+
+
+</script>
+</body>
+</html>

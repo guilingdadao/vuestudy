@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+</head>
+
+<body>
+
+	<script type="text/javascript">
+// 并行：将多个promise直接发起请求（先执行async所在函数），然后再进行await操作。
+async function asyncAwaitFn(str) {
+	
+    return await new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(str)
+        }, 1000);
+    })
+}
+
+const parallel = async () => { //并行执行
+	
+    console.time('parallel')
+    const parallelOne = asyncAwaitFn('string 1');
+    const parallelTwo = asyncAwaitFn('string 2')
+    const parallelThree = asyncAwaitFn('string 3')
+    const parallelFour = asyncAwaitFn('string 4')
+    const parallelFive = asyncAwaitFn('string 5')
+
+    //直接打印
+    console.log(await parallelOne)
+    console.log(await parallelTwo)
+    console.log(await parallelThree)
+    console.log(await parallelFour)
+    console.log(await parallelFive)
+
+    console.timeEnd('parallel')
+}
+
+parallel()
+
+
+const syncCall = async () => { //并行执行
+	
+    console.time('syncCall')
+    const parallelOne = await asyncAwaitFn('string 1');
+    const parallelTwo = await  asyncAwaitFn('string 2')
+    const parallelThree = await  asyncAwaitFn('string 3')
+    const parallelFour = await  asyncAwaitFn('string 4')
+    const parallelFive = await  asyncAwaitFn('string 5')
+
+    //直接打印
+    console.log(await parallelOne)
+    console.log(await parallelTwo)
+    console.log(await parallelThree)
+    console.log(await parallelFour)
+    console.log(await parallelFive)
+
+    console.timeEnd('syncCall')
+}
+
+syncCall();
+
+
+</script>
+</body>
+</html>

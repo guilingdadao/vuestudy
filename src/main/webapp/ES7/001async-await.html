@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+</head>
+
+<body>
+	<script type="text/javascript">
+	
+// 	在最新的ES7（ES2017）中提出的前端异步特性：async、await。
+
+//1  	什么是async、await？
+// 	async顾名思义是“异步”的意思，async用于声明一个函数是异步的。而await从字面意思上是“等待”的意思，就是用于等待异步完成。并且await只能在async函数中使用
+
+//2	通常async、await都是跟随Promise一起使用的。为什么这么说呢？
+//因为async返回的都是一个Promise对象同时async适用于任何类型的函数上。
+//这样await得到的就是一个Promise对象(如果不是Promise对象的话那async返回的是什么 就是什么)；
+
+// 	await得到Promise对象之后就等待Promise接下来的resolve或者reject。
+	
+async function testSync() {
+	
+     const response = await new Promise(resolve => {
+    	 
+    	 console.log( typeof resolve);//function
+    	 //alert(resolve)
+    	 //console.log(resovle.constructor);
+    	 console.log(resolve == null);//false   不为空
+    	 
+//     	 let ret = resolve('hello');
+//     	 console.log("test:"+ret);
+    	 
+         setTimeout(() => {
+             resolve("async await test...");
+          }, 1000);
+         
+     });
+     
+     console.log(response);
+}
+
+testSync();//async await test...
+
+</script>
+</body>
+</html>

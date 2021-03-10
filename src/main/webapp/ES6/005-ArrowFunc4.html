@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+</head>
+
+<body>
+
+	<script type="text/javascript">
+	
+	//默认 不写 return ,返回值是 undefined，未定义
+	//如果只写了return; 返回值也是undefined，未定义
+	
+		function testfn() {
+			let a = 1 + 1;
+			console.log(a);
+		}
+	
+		let msg = testfn();
+		console.log(msg);
+		
+	//箭头函数的默认返回值,是最后一个表达式
+	let testFn2 =name=>`hello,${name}`;
+	let msg2 = testFn2('zhangsan');
+	console.log(msg2);
+
+	// 测试
+	let testAdd =(a,b)=>a+b;
+	
+	let ret = testAdd(1,2);
+	console.log(ret);
+	
+	// 测试,如果有函数体,函数返回值需要使用return返回 , 否则未undefined
+	let testTimes=(a,b)=>{
+		a = a *10 ;
+		b = b *10;
+		console.log( a*b );
+		
+		return a*b;
+	};
+	
+	let timeRet = testTimes(1,2);
+	console.log(timeRet);
+	
+	
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+</head>
+
+<body>
+
+	<script type="text/javascript">
+// 	当需要异步请求的返回值时，可以在成功回调函数中进行操作；但是必须要同步执行的时候可以用 async + await 进行阻塞。
+// 	1.await后面接一个会return new promise的函数并执行它
+// 	2.await只能放在async函数里
+
+	//示例1
+	async function fnName() {
+	
+	   const response = await new Promise(resolve => {
+		   
+	       setTimeout(() => {
+	           resolve("async await test...");
+	         }, 1000);
+	       
+	    });
+	   
+	    console.log(response);
+	 }
+	 
+	fnName();//async await test...
+
+</script>
+</body>
+</html>
