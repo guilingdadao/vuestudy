@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+</head>
+
+<body>
+
+	<script type="text/javascript">
+	/**
+	 *  包裹一个promise函数
+	 
+	 ***/
+	 function printMsg(name){
+		
+		return  new Promise(resolve=>{
+				
+			window.setTimeout(function(){
+				resolve(" $"+name+"$ ");
+			},1000);
+		});
+	}
+	 
+
+	/***
+	 *    所有的异步操作都完成后,才会执行then方法.
+	 *   操作的返回值,分别赋值给name1和name2,name3组成的数组
+	 *
+	***/
+	 Promise.all([printMsg('1'),printMsg('2'),printMsg('3')]).then(function([name1,name2,name3]){
+		 
+		 console.log("name1:"+name1 + " , name2:"+name2 +", name3:"+ name3);
+	 });
+	</script>
+</body>
+</html>

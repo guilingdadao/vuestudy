@@ -25,7 +25,8 @@ for(let name of nameList()){
   }
 //我们能使用generator替代iterator代码，需要包括星号*的函数签名和yield关键词：
 
-post[Symbol.iterator] = function * () {  
+post[Symbol.iterator] = function * () {
+	
   let properties = Object.keys(this);
   
    for(let p of properties){
@@ -37,8 +38,11 @@ post[Symbol.iterator] = function * () {
 
 function *infiniteNumbers() {
     var n = 1;
+    
     while (true){
+    	
         yield n++;
+        
     }
 }
  

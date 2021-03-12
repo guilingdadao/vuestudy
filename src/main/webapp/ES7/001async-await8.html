@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+</head>
+
+<body>
+
+	<script type="text/javascript">
+	/**
+	 *  包裹一个promise函数
+	 
+	 ***/
+	 function printMsg(name){
+		
+		return  new Promise(resolve=>{
+				
+			window.setTimeout(function(){
+				resolve(" $"+name+"$ ");
+			},1000);
+		});
+	}
+	 
+async function doBach(){
+	let name1 = await printMsg('zhangsan');
+	
+	console.log("hello:"+name1);
+	
+	let name2 = await printMsg(name1);
+	
+	console.log("hello:"+name2);
+	
+	let name3 = await printMsg(name2);
+	
+	console.log("hello:"+name3);
+}	 
+
+doBach();
+	</script>
+</body>
+</html>

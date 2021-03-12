@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+</head>
+
+<body>
+
+	<script type="text/javascript">
+//JavaScript提供了手动的“惰性求值”（Lazy Evaluation）的语法功能
+function* gen() {
+	//yield后面的表达式123 + 456，不会立即求值，只会在next方法将指针移到这一句时，才会求值。
+  yield  123 + 456;
+}
+ 
+//Generator函数可以不用yield语句，这时就变成了一个单纯的暂缓执行函数。 
+function* f() {
+	console.log('执行了！')
+}
+
+	var generator = f();
+
+	setTimeout(function () {
+	  generator.next()
+	}, 2000);
+
+</script>
+
+</body>
+</html>
