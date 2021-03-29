@@ -34,8 +34,8 @@ class nameOfClass {
 let instance = new nameOfClass(name, description, url);  
 instance.render();  
  
-
-为了重用代码，类可以使用继承，子类就能使用父类中的方法行为：
+*/
+// 为了重用代码，类可以使用继承，子类就能使用父类中的方法行为：
 
 class Child extends Parent { 
   constructor() {
@@ -50,30 +50,7 @@ class Child extends Parent {
     // 能够访问从父类继承的方法和属性
   }
 } 
-super()是用来运行父类的构造器函数。
-*/
-
-class Person{
-	
-	constructor(name,age,email){
-		this.name = name;
-		this.age = age;
-		this.email = email;
-	}
-	
-	printMsg(){
-		this._printInnerMsg();
-	}
-	
-	_printInnerMsg(){//带有下划线的方法表明这个方法不应该从公共API调用。只是建议表示
-		console.log(this.name +" , "+ this.age +" , " + this.email);
-	}
-}
-
-var p = new Person('zhangsan',23,'zhangsan@bjrcb.com');
-p.printMsg();
-//p._printInnerMsg();//带有下划线的方法表明这个方法不应该从公共API调用。只是建议表示
-
+// super()是用来运行父类的构造器函数。
 
 </script>
 </body>

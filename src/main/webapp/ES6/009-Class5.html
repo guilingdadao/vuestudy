@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+</head>
+
+<body>
+
+<script type="text/javascript">
+/***ES6定义类的方式**/
+class Phone{
+	constructor(brand,price){
+		
+		this.brand =brand;
+		this.price = price;
+	}
+	
+	call(){
+		
+		console.log( this.brand + ' 打电话, 手机价格为: '+ this.price);
+	}
+}
+let mi = new Phone("MI",4500);
+console.log(mi);
+mi.call();
+</script>
+</body>
+</html>

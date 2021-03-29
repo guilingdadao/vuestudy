@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+</head>
+
+<body>
+
+<script type="text/javascript">
+/***ES5定义类的方式**/
+function Phone(brand,price){
+	this.brand = brand;
+	this.price=price;
+}
+
+Phone.prototype.call=function(){
+	console.log('我可以打电话');
+}
+
+let mi = new Phone("MI",4500);
+console.log(mi);
+mi.call();
+//
+</script>
+</body>
+</html>

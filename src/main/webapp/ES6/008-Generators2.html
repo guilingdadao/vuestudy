@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+</head>
+
+<body>
+
+<script type="text/javascript">
+
+//我们能使用generator替代iterator代码，需要包括星号*的函数签名和yield关键词：
+
+post[Symbol.iterator] = function * () {
+	
+  let properties = Object.keys(this);
+  
+   for(let p of properties){
+    yield this[p];
+  }
+}; 
+
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+</head>
+
+<body>
+
+<script type="text/javascript">
+
+class Person{
+	
+	constructor(name,age,email){
+		this.name = name;
+		this.age = age;
+		this.email = email;
+	}
+	
+	printMsg(){
+		this._printInnerMsg();
+	}
+	
+	_printInnerMsg(){//带有下划线的方法表明这个方法不应该从公共API调用。只是建议表示
+		console.log(this.name +" , "+ this.age +" , " + this.email);
+	}
+}
+
+var p = new Person('zhangsan',23,'zhangsan@bjrcb.com');
+p.printMsg();
+//p._printInnerMsg();//带有下划线的方法表明这个方法不应该从公共API调用。只是建议表示
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>练习生命周期</title>
+</head>
+
+<body>
+
+<script type="text/javascript">
+//generator能够根据要求再计算yield的值，因此在CPU密集型序列或无限序列中能够有效率地使用。
+
+function *infiniteNumbers() {
+    var n = 1;
+    
+    while (true){
+    	
+        yield n++;
+        
+    }
+}
+ 
+var numbers = infiniteNumbers(); // returns an iterable object 
+ 
+numbers.next(); // { value: 1, done: false } 
+numbers.next(); // { value: 2, done: false } 
+numbers.next(); // { value: 3, done: false } 
+
+</script>
+</body>
+</html>
